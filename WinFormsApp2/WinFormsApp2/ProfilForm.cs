@@ -13,7 +13,7 @@ namespace WinFormsApp2
             aktifKullaniciId = kullaniciId;
             InitializeComponent();
             LoadProfil();
-            LoadFaturalar();
+            LoadBorcListesi();
         }
 
         private void LoadProfil()
@@ -34,64 +34,40 @@ namespace WinFormsApp2
                 }
             }
         }
-
-        private void LoadFaturalar()
+        private void LoadBorcListesi()
         {
-            dgvOdenen.Rows.Clear();
-            dgvOdenen.Columns.Clear();
-            dgvOdenen.Columns.Add("Tur", "Fatura Tipi");
-            dgvOdenen.Columns.Add("Tutar", "Tutar");
-            dgvOdenen.Columns.Add("SonOdemeTarihi", "Son Tarih");
-            dgvOdenen.Columns.Add("Aciklama", "Açıklama");
+            dgvBorcListesi.Rows.Clear();
+            dgvBorcListesi.Columns.Clear();
+            dgvBorcListesi.Columns.Add("FaturaId", "Fatura ID");
+            dgvBorcListesi.Columns.Add("FaturaTuru", "Fatura Türü");
+            dgvBorcListesi.Columns.Add("Borc", "Tutar");
+            dgvBorcListesi.Columns.Add("OdendiMi", "Durum");
 
-            dgvOdenmemis.Rows.Clear();
-            dgvOdenmemis.Columns.Clear();
-            dgvOdenmemis.Columns.Add("Tur", "Fatura Tipi");
-            dgvOdenmemis.Columns.Add("Tutar", "Tutar");
-            dgvOdenmemis.Columns.Add("SonOdemeTarihi", "Son Tarih");
-            dgvOdenmemis.Columns.Add("Aciklama", "Açıklama");
-
-            decimal toplamBorc = 0;
             string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
             using (var baglanti = new SqlConnection(baglantiString))
             {
                 baglanti.Open();
-
-                // Ödenen faturalar
-                var komutOdenen = new SqlCommand();
-                komutOdenen.Connection = baglanti;
-                komutOdenen.CommandText = "SELECT Tur, Tutar, SonOdemeTarihi, Aciklama FROM Faturalar WHERE UserId=@UserId AND OdendiMi=1";
-                komutOdenen.Parameters.AddWithValue("@UserId", aktifKullaniciId);
-                var veriOkuyucuOdenen = komutOdenen.ExecuteReader();
-                while (veriOkuyucuOdenen.Read())
+                // Fatura türünü de göstermek için JOIN ile çekiyoruz
+                var komut = new SqlCommand(@"
+                    SELECT kfb.FaturaId, f.Tur, kfb.Borc, kfb.OdendiMi
+                    FROM KullaniciFaturaBorcu kfb
+                    INNER JOIN Faturalar f ON kfb.FaturaId = f.Id
+                    WHERE kfb.UserId = @UserId
+                    ORDER BY kfb.OdendiMi, f.Tur", baglanti);
+                komut.Parameters.AddWithValue("@UserId", aktifKullaniciId);
+                var dr = komut.ExecuteReader();
+                while (dr.Read())
                 {
-                    dgvOdenen.Rows.Add(
-                        veriOkuyucuOdenen["Tur"].ToString(),
-                        veriOkuyucuOdenen["Tutar"].ToString(),
-                        Convert.ToDateTime(veriOkuyucuOdenen["SonOdemeTarihi"]).ToShortDateString(),
-                        veriOkuyucuOdenen["Aciklama"].ToString());
+                    string durum = Convert.ToBoolean(dr["OdendiMi"]) ? "Ödendi" : "Ödenmedi";
+                    dgvBorcListesi.Rows.Add(
+                        dr["FaturaId"].ToString(),
+                        dr["Tur"].ToString(),
+                        dr["Borc"].ToString(),
+                        durum
+                    );
                 }
-                veriOkuyucuOdenen.Close();
-
-                // Ödenmemiş faturalar ve toplam borç
-                var komutOdenmemis = new SqlCommand();
-                komutOdenmemis.Connection = baglanti;
-                komutOdenmemis.CommandText = "SELECT Tur, Tutar, SonOdemeTarihi, Aciklama FROM Faturalar WHERE UserId=@UserId AND OdendiMi=0";
-                komutOdenmemis.Parameters.AddWithValue("@UserId", aktifKullaniciId);
-                var veriOkuyucuOdenmemis = komutOdenmemis.ExecuteReader();
-                while (veriOkuyucuOdenmemis.Read())
-                {
-                    dgvOdenmemis.Rows.Add(
-                        veriOkuyucuOdenmemis["Tur"].ToString(),
-                        veriOkuyucuOdenmemis["Tutar"].ToString(),
-                        Convert.ToDateTime(veriOkuyucuOdenmemis["SonOdemeTarihi"]).ToShortDateString(),
-                        veriOkuyucuOdenmemis["Aciklama"].ToString());
-                    toplamBorc += Convert.ToDecimal(veriOkuyucuOdenmemis["Tutar"]);
-                }
-                veriOkuyucuOdenmemis.Close();
+                dr.Close();
             }
-
-            lblOdenmemis.Text = $"Ödenmemiş Faturalar (Toplam Borç: {toplamBorc:C2})";
         }
 
         private void btnSifreDegistir_Click(object sender, EventArgs e)

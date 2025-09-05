@@ -98,6 +98,15 @@ namespace WinFormsApp2
             using (var baglanti = new SqlConnection(baglantiString))
             {
                 baglanti.Open();
+
+                // Önce ilişkili FaturaOdeme kayıtlarını sil
+                var komutFaturaOdeme = new SqlCommand();
+                komutFaturaOdeme.Connection = baglanti;
+                komutFaturaOdeme.CommandText = "DELETE FROM FaturaOdeme WHERE FaturaId=@FaturaId";
+                komutFaturaOdeme.Parameters.AddWithValue("@FaturaId", seciliFatura);
+                komutFaturaOdeme.ExecuteNonQuery();
+
+                // Sonra faturayı sil
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "DELETE FROM Faturalar WHERE Id=@Id";
@@ -105,12 +114,12 @@ namespace WinFormsApp2
                 int result = komut.ExecuteNonQuery();
                 if (result > 0)
                 {
-                     MessageBox.Show("Fatura başarıyla silindi.");
-                     LoadFaturalar();
+                    MessageBox.Show("Fatura başarıyla silindi.");
+                    LoadFaturalar();
                 }
                 else
                 {
-                     MessageBox.Show("Fatura silinirken bir hata oluştu.");
+                    MessageBox.Show("Fatura silinirken bir hata oluştu.");
                 }
             }
         }

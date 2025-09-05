@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j1vg9t25G/E=",
+  "dgSpecHash": "NXo9mr7UD4k=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kaan\\source\\repos\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
+  "projectFilePath": "C:\\Users\\Kaan\\Documents\\GitHub\\WinFormsUserManagement\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kaan\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Kaan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
