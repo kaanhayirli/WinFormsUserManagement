@@ -32,7 +32,7 @@
             lblTitle.ForeColor = Color.DarkSlateGray;
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(674, 40);
+            lblTitle.Size = new Size(672, 40);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Takibi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -59,7 +59,7 @@
             // 
             // FaturaTakibiForm
             // 
-            ClientSize = new Size(674, 394);
+            ClientSize = new Size(672, 381);
             Controls.Add(lblTitle);
             Controls.Add(dgvFaturaTakibi);
             Controls.Add(btnYenile);

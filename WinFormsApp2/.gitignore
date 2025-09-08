@@ -1,0 +1,44 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio working folder
+.vs/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Visual Studio Code settings
+.vscode/
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Resharper files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotCover files
+*.dotCover
+
+# Backup & temporary files
+*.bak
+*.tmp
+*.temp
+*.log
+
+# Publish output
+publish/
+
+# Others
+*.dbmdl
+*.pdb

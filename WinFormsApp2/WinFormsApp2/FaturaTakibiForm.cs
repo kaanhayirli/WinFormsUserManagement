@@ -34,8 +34,8 @@ namespace WinFormsApp2
                 var komutFatura = new SqlCommand();
                 komutFatura.Connection = baglanti;
                 komutFatura.CommandText = "SELECT SUM(Tutar) FROM Faturalar WHERE OdendiMi=0";
-                decimal toplamFatura = komutFatura.ExecuteScalar() != DBNull.Value ? Convert.ToDecimal(komutFatura.ExecuteScalar()) : 0;//
 
+                decimal toplamFatura = komutFatura.ExecuteScalar() != DBNull.Value ? Convert.ToDecimal(komutFatura.ExecuteScalar()) : 0;
                 decimal kisiBorcu = kullaniciSayisi > 0 ? toplamFatura / kullaniciSayisi : 0;
 
                 var komutListe = new SqlCommand();
