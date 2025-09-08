@@ -47,7 +47,7 @@
             // cmbFaturaTipi
             // 
             cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira" });
+            cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
             cmbFaturaTipi.Location = new Point(190, 59);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
             cmbFaturaTipi.Size = new Size(200, 28);

@@ -53,7 +53,7 @@ namespace WinFormsApp2
                 Application.Exit();
             }
         }
-
+        
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Eğer ayrı bir profil menüsü varsa, burada da ProfilForm açabilirsin.

@@ -13,7 +13,6 @@ namespace WinFormsApp2
             aktifKullaniciId = kullaniciId;
             InitializeComponent();
             LoadProfil();
-            LoadBorcListesi();
         }
 
         private void LoadProfil()
@@ -32,41 +31,6 @@ namespace WinFormsApp2
                     lblFullName.Text = "Ad Soyad: " + veriOkuyucu["FullName"].ToString();
                     lblPhone.Text = "Telefon: " + veriOkuyucu["Phone"].ToString();
                 }
-            }
-        }
-        private void LoadBorcListesi()
-        {
-            dgvBorcListesi.Rows.Clear();
-            dgvBorcListesi.Columns.Clear();
-            dgvBorcListesi.Columns.Add("FaturaId", "Fatura ID");
-            dgvBorcListesi.Columns.Add("FaturaTuru", "Fatura Türü");
-            dgvBorcListesi.Columns.Add("Borc", "Tutar");
-            dgvBorcListesi.Columns.Add("OdendiMi", "Durum");
-
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
-            {
-                baglanti.Open();
-                // Fatura türünü de göstermek için JOIN ile çekiyoruz
-                var komut = new SqlCommand(@"
-                    SELECT kfb.FaturaId, f.Tur, kfb.Borc, kfb.OdendiMi
-                    FROM KullaniciFaturaBorcu kfb
-                    INNER JOIN Faturalar f ON kfb.FaturaId = f.Id
-                    WHERE kfb.UserId = @UserId
-                    ORDER BY kfb.OdendiMi, f.Tur", baglanti);
-                komut.Parameters.AddWithValue("@UserId", aktifKullaniciId);
-                var dr = komut.ExecuteReader();
-                while (dr.Read())
-                {
-                    string durum = Convert.ToBoolean(dr["OdendiMi"]) ? "Ödendi" : "Ödenmedi";
-                    dgvBorcListesi.Rows.Add(
-                        dr["FaturaId"].ToString(),
-                        dr["Tur"].ToString(),
-                        dr["Borc"].ToString(),
-                        durum
-                    );
-                }
-                dr.Close();
             }
         }
 
@@ -125,6 +89,11 @@ namespace WinFormsApp2
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtYeniSifre_TextChanged(object sender, EventArgs e)
         {
 
         }

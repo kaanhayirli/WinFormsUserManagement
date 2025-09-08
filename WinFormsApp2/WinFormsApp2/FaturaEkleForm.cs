@@ -42,6 +42,7 @@ namespace WinFormsApp2
                 var komut = new SqlCommand();
 
                 komut.Connection = baglanti;
+                //eklenen kaydın ID’sini almak için SELECT SCOPE_IDENTITY() kullanılır.
                 komut.CommandText = "INSERT INTO Faturalar (Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi, UserId) " + "VALUES (@Tur, @Tutar, @SonOdemeTarihi, @Aciklama, 0, @UserId); SELECT SCOPE_IDENTITY();";
                 komut.Parameters.AddWithValue("@Tur", faturaTipi);
                 komut.Parameters.AddWithValue("@Tutar", tutar);
@@ -49,6 +50,7 @@ namespace WinFormsApp2
                 komut.Parameters.AddWithValue("@Aciklama", aciklama);
                 komut.Parameters.AddWithValue("@UserId", MainPage.AktifKullaniciId);
 
+                //Sorgu çalıştırılır ve eklenen faturanın ID’si alınır.
                 object idObj = komut.ExecuteScalar();
                 if (idObj == null || idObj == DBNull.Value)
                 {
@@ -59,11 +61,16 @@ namespace WinFormsApp2
 
                 // Tüm kullanıcıları çek
                 List<int> kullaniciIdList = new List<int>();
-                using (var komut3 = new SqlCommand("SELECT Id FROM Users", baglanti))
-                using (var dr = komut3.ExecuteReader())
+                using (var komut3 = new SqlCommand())
                 {
-                    while (dr.Read())
-                        kullaniciIdList.Add(Convert.ToInt32(dr["Id"]));
+                    komut3.Connection = baglanti;
+                    komut3.CommandText = "SELECT Id FROM Users";
+
+                    using (var veriOkuyucu = komut3.ExecuteReader())
+                    {
+                        while (veriOkuyucu.Read())
+                            kullaniciIdList.Add(Convert.ToInt32(veriOkuyucu["Id"]));
+                    }
                 }
 
                 // Kişi başı borç
@@ -72,8 +79,10 @@ namespace WinFormsApp2
                 // Her kullanıcı için KullaniciFaturaBorcu tablosuna kayıt ekle
                 foreach (var userId in kullaniciIdList)
                 {
-                    using (var komut4 = new SqlCommand("INSERT INTO KullaniciFaturaBorcu (FaturaId, UserId, Borc, OdendiMi) VALUES (@FaturaId, @UserId, @Borc, 0)", baglanti))
+                    using (var komut4 = new SqlCommand())
                     {
+                        komut4.Connection = baglanti;
+                        komut4.CommandText = "INSERT INTO KullaniciFaturaBorcu (FaturaId, UserId, Borc, OdendiMi) VALUES (@FaturaId, @UserId, @Borc, 0)";
                         komut4.Parameters.AddWithValue("@FaturaId", yeniFaturaId);
                         komut4.Parameters.AddWithValue("@UserId", userId);
                         komut4.Parameters.AddWithValue("@Borc", kisiBasiBorc);
