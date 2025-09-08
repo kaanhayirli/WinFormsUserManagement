@@ -23,13 +23,14 @@ namespace WinFormsApp2
                 baglanti.Open();
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "SELECT FullName, Phone FROM Users Where Id=@Id";
+                komut.CommandText = "SELECT Username, FullName, Phone FROM Users Where Id=@Id";
                 komut.Parameters.AddWithValue("@Id", aktifKullaniciId);
                 var veriOkuyucu = komut.ExecuteReader();
                 if (veriOkuyucu.Read())
                 {
-                    lblFullName.Text = "Ad Soyad: " + veriOkuyucu["FullName"].ToString();
-                    lblPhone.Text = "Telefon: " + veriOkuyucu["Phone"].ToString();
+                    txtUsername.Text = veriOkuyucu["Username"].ToString();
+                    txtFullName.Text =veriOkuyucu["FullName"].ToString();
+                    txtPhone.Text =veriOkuyucu["Phone"].ToString();
                 }
             }
         }
@@ -94,6 +95,11 @@ namespace WinFormsApp2
         }
 
         private void txtYeniSifre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
