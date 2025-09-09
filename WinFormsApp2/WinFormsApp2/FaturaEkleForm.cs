@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -7,7 +6,6 @@ namespace WinFormsApp2
 {
     public partial class FaturaEkleForm : Form
     {
-        
         public FaturaEkleForm()
         {
             InitializeComponent();
@@ -15,9 +13,9 @@ namespace WinFormsApp2
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (cmbFaturaTipi.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtTutar.Text) || string.IsNullOrWhiteSpace(txtAciklama.Text)) 
-            { 
-                MessageBox.Show("Lütfen tüm alanları doldurun!"); 
+            if (cmbFaturaTipi.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtTutar.Text) || string.IsNullOrWhiteSpace(txtAciklama.Text))
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurun!");
                 return;
             }
 
@@ -32,62 +30,26 @@ namespace WinFormsApp2
                 return;
             }
 
-            // Parametreleri kontrol et
-            MessageBox.Show($"Tur: {faturaTipi}\nTutar: {tutar}\nSon Tarih: {sonTarih}\nAçıklama: {aciklama}\nUserId: {MainPage.AktifKullaniciId}");
-
             string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
             using (var baglanti = new SqlConnection(baglantiString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();
-
                 komut.Connection = baglanti;
-                //eklenen kaydın ID’sini almak için SELECT SCOPE_IDENTITY() kullanılır.
-                komut.CommandText = "INSERT INTO Faturalar (Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi, UserId) " + "VALUES (@Tur, @Tutar, @SonOdemeTarihi, @Aciklama, 0, @UserId); SELECT SCOPE_IDENTITY();";
+                komut.CommandText = "INSERT INTO Faturalar (Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi) VALUES (@Tur, @Tutar, @SonOdemeTarihi, @Aciklama, 0)";
                 komut.Parameters.AddWithValue("@Tur", faturaTipi);
                 komut.Parameters.AddWithValue("@Tutar", tutar);
                 komut.Parameters.AddWithValue("@SonOdemeTarihi", sonTarih);
                 komut.Parameters.AddWithValue("@Aciklama", aciklama);
-                komut.Parameters.AddWithValue("@UserId", MainPage.AktifKullaniciId);
 
-                //Sorgu çalıştırılır ve eklenen faturanın ID’si alınır.
-                object idObj = komut.ExecuteScalar();
-                if (idObj == null || idObj == DBNull.Value)
+                int sonuc = komut.ExecuteNonQuery();
+                if (sonuc > 0)
                 {
-                    MessageBox.Show("Fatura ID alınamadı, işlem iptal edildi.");
-                    return;
+                    MessageBox.Show("Fatura başarıyla eklendi.");
                 }
-                int yeniFaturaId = Convert.ToInt32(idObj);
-
-                // Tüm kullanıcıları çek
-                List<int> kullaniciIdList = new List<int>();
-                using (var komut3 = new SqlCommand())
+                else
                 {
-                    komut3.Connection = baglanti;
-                    komut3.CommandText = "SELECT Id FROM Users";
-
-                    using (var veriOkuyucu = komut3.ExecuteReader())
-                    {
-                        while (veriOkuyucu.Read())
-                            kullaniciIdList.Add(Convert.ToInt32(veriOkuyucu["Id"]));
-                    }
-                }
-
-                // Kişi başı borç
-                decimal kisiBasiBorc = tutar / kullaniciIdList.Count;
-
-                // Her kullanıcı için KullaniciFaturaBorcu tablosuna kayıt ekle
-                foreach (var userId in kullaniciIdList)
-                {
-                    using (var komut4 = new SqlCommand())
-                    {
-                        komut4.Connection = baglanti;
-                        komut4.CommandText = "INSERT INTO KullaniciFaturaBorcu (FaturaId, UserId, Borc, OdendiMi) VALUES (@FaturaId, @UserId, @Borc, 0)";
-                        komut4.Parameters.AddWithValue("@FaturaId", yeniFaturaId);
-                        komut4.Parameters.AddWithValue("@UserId", userId);
-                        komut4.Parameters.AddWithValue("@Borc", kisiBasiBorc);
-                        komut4.ExecuteNonQuery();
-                    }
+                    MessageBox.Show("Fatura eklenemedi.");
                 }
             }
 
@@ -101,7 +63,7 @@ namespace WinFormsApp2
         {
 
         }
-        
+
         private void label1_Click(object sender, EventArgs e)
         {
 

@@ -64,14 +64,14 @@ namespace WinFormsApp2
 
                 komut.ExecuteNonQuery();
             }
-
+            
             User yeni = new User();
             yeni.FullName = adsoyad;
             yeni.Username = kullaniciadi;
             yeni.Phone = tel;
             yeni.Password = sifre;
             Users.Add(yeni);
-
+            
             MessageBox.Show("Kayýt Baþarýlý.");
             this.Close();
         }
