@@ -25,8 +25,7 @@ namespace WinFormsApp2
             dgvFaturaListesi.Columns.Add("Aciklama", "Açıklama");
             dgvFaturaListesi.Columns.Add("OdendiMi", "Ödendi mi?");
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();
@@ -64,8 +63,7 @@ namespace WinFormsApp2
             decimal tutar = Convert.ToDecimal(row.Cells["Tutar"].Value);
             string sonTarih = row.Cells["SonOdemeTarihi"].Value.ToString();
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();
@@ -94,8 +92,7 @@ namespace WinFormsApp2
             if (sonuc != DialogResult.Yes)
                 return;
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
 

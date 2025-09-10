@@ -18,11 +18,10 @@ namespace WinFormsApp2
             dgvFaturaTakibi.Columns.Clear();//sor burayı
             dgvFaturaTakibi.Columns.Add("FullName", "Ad Soyad");
             dgvFaturaTakibi.Columns.Add("TotalDebt", "Toplam Borç");
-
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
+ 
 
             int kullaniciSayisi = 0;
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 

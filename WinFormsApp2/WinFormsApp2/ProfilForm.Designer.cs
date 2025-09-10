@@ -47,11 +47,12 @@
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Profil";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitle.Click += lblTitle_Click;
             // 
             // txtFullName
             // 
             txtFullName.BackColor = SystemColors.Window;
-            txtFullName.Location = new Point(120, 84);
+            txtFullName.Location = new Point(157, 84);
             txtFullName.Name = "txtFullName";
             txtFullName.Size = new Size(200, 25);
             txtFullName.TabIndex = 1;
@@ -59,7 +60,7 @@
             // txtPhone
             // 
             txtPhone.BackColor = SystemColors.Window;
-            txtPhone.Location = new Point(120, 118);
+            txtPhone.Location = new Point(157, 118);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(200, 25);
             txtPhone.TabIndex = 2;
@@ -132,7 +133,7 @@
             // txtUsername
             // 
             txtUsername.BackColor = SystemColors.Window;
-            txtUsername.Location = new Point(120, 50);
+            txtUsername.Location = new Point(157, 50);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(200, 25);
             txtUsername.TabIndex = 14;
@@ -151,6 +152,7 @@
             Controls.Add(txtEskiSifre);
             Controls.Add(txtYeniSifre);
             Controls.Add(btnSifreDegistir);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ProfilForm";
             Text = "Profil";
             ResumeLayout(false);
@@ -159,12 +161,12 @@
 
         private void txtEskiSifre_TextChanged(object sender, EventArgs e)
         {
-            
+            throw new NotImplementedException();
         }
 
         private void lblSifreDegistir_Click(object sender, EventArgs e)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

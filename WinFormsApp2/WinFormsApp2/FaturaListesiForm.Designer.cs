@@ -75,6 +75,7 @@
             Controls.Add(label1);
             Controls.Add(dgvFaturaListesi);
             Controls.Add(btnOdenen);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaListesiForm";
             Text = "Fatura Listesi";
             ((System.ComponentModel.ISupportInitialize)dgvFaturaListesi).EndInit();

@@ -36,13 +36,13 @@ namespace WinFormsApp2
                 komut.CommandText = "SELECT Id, FullName, Phone FROM Users";
                 var veriOkuyucu = komut.ExecuteReader();
 
-                while (veriOkuyucu.Read())  
+                while (veriOkuyucu.Read())
                 {
                     kullaniciTablosu.Rows.Add(veriOkuyucu["Id"], veriOkuyucu["FullName"], veriOkuyucu["Phone"]);
                 }
             }
         }
-        
+
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (kullaniciTablosu.SelectedRows.Count == 0)
@@ -58,10 +58,9 @@ namespace WinFormsApp2
             if (sonuc != DialogResult.Yes)
                 return;
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
             bool silindi = false;
 
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
 
@@ -77,13 +76,23 @@ namespace WinFormsApp2
                 komut2.Parameters.AddWithValue("@Id", seciliKisiId);
                 silindi = komut2.ExecuteNonQuery() > 0;
             }
-            
+
             if (silindi)
                 MessageBox.Show("Kullanıcı başarıyla silindi.");
             else
                 MessageBox.Show("Kullanıcı silinemedi.");
 
             LoadKullaniciBilgileri();
+        }
+
+        private void kullaniciTablosu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void kullaniciTablosu_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

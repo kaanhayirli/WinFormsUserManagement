@@ -27,9 +27,7 @@ namespace WinFormsApp2
             }
 
             bool varMi = false;
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-
-            using (SqlConnection baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 SqlCommand kontrolKomut = new SqlCommand();
@@ -49,8 +47,8 @@ namespace WinFormsApp2
                 MessageBox.Show("Kullanýcý adý var.");
                 return;
             }
-            
-            using (SqlConnection baglanti = new SqlConnection(baglantiString))
+
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
 

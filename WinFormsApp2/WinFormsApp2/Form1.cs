@@ -5,16 +5,14 @@ namespace WinFormsApp2
 {
     public partial class Form1 : Form
     {
-        string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
 
         public Form1()
         {
             InitializeComponent();
         }
         
-        private void btnGiris_Click(object sender, EventArgs e)
+        void btnGiris_Click(object sender, EventArgs e)
         {
-            //Kullanýcý adýný giriþ kutusundan alýr ve baþtaki / sondaki boþluklarý siler.
             string kullaniciadi = txtLoginUsername.Text.Trim();
             string sifre = txtLoginPassword.Text;
 
@@ -23,11 +21,11 @@ namespace WinFormsApp2
                 MessageBox.Show("Lütfen kullanýcý adý ve þifreyi girin.");
                 return;
             }
-            
-            using (SqlConnection baglanti = new SqlConnection(baglantiString))
+
+            using (SqlConnection baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
-                
+
                 SqlCommand komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "SELECT COUNT(*) FROM Users WHERE Username=@Username AND Password=@Password";
@@ -37,25 +35,24 @@ namespace WinFormsApp2
                 int sayi = (int)komut.ExecuteScalar();
                 if (sayi > 0)
                 {
-                    //Ana formu açmadan önce bulunan kullanýcý ID'sini al
+                    // Kullanýcý ID'sini al
                     komut.CommandText = "SELECT Id FROM Users WHERE Username=@Username AND Password=@Password";
                     object sonuc = komut.ExecuteScalar();
                     if (sonuc != null)
                     {
                         int bulunanKullaniciId = Convert.ToInt32(sonuc);
-                        MainPage.AktifKullaniciId = bulunanKullaniciId; // Kullanýcý ID'sini ana forma aktar
+                        MainPage.AktifKullaniciId = bulunanKullaniciId;
                     }
-                    
-                    var anaForm = new MainPage();
-                    anaForm.ShowDialog();
+
+                    // Ana sayfayý aç ve giriþ formunu kapat
+                    MainPage anaForm = new MainPage();
+                    anaForm.Show();
+                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Kullanýcý adý veya þifre yanlýþ!");
                 }
-
-                txtLoginUsername.Text = "";
-                txtLoginPassword.Text = "";
             }
         }
         

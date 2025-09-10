@@ -32,7 +32,7 @@
             lblTitle.ForeColor = Color.DarkSlateGray;
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(672, 40);
+            lblTitle.Size = new Size(691, 40);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Takibi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -46,6 +46,7 @@
             dgvFaturaTakibi.Location = new Point(10, 50);
             dgvFaturaTakibi.Name = "dgvFaturaTakibi";
             dgvFaturaTakibi.ReadOnly = true;
+            dgvFaturaTakibi.RowHeadersVisible = false;
             dgvFaturaTakibi.RowHeadersWidth = 51;
             dgvFaturaTakibi.Size = new Size(650, 280);
             dgvFaturaTakibi.TabIndex = 0;
@@ -59,11 +60,13 @@
             // 
             // FaturaTakibiForm
             // 
-            ClientSize = new Size(672, 381);
+            ClientSize = new Size(691, 359);
             Controls.Add(lblTitle);
             Controls.Add(dgvFaturaTakibi);
             Controls.Add(btnYenile);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaTakibiForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Fatura Takibi";
             ((System.ComponentModel.ISupportInitialize)dgvFaturaTakibi).EndInit();
             ResumeLayout(false);

@@ -17,8 +17,7 @@ namespace WinFormsApp2
 
         private void LoadProfil()
         {
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();
@@ -29,8 +28,8 @@ namespace WinFormsApp2
                 if (veriOkuyucu.Read())
                 {
                     txtUsername.Text = veriOkuyucu["Username"].ToString();
-                    txtFullName.Text =veriOkuyucu["FullName"].ToString();
-                    txtPhone.Text =veriOkuyucu["Phone"].ToString();
+                    txtFullName.Text = veriOkuyucu["FullName"].ToString();
+                    txtPhone.Text = veriOkuyucu["Phone"].ToString();
                 }
             }
         }
@@ -46,8 +45,7 @@ namespace WinFormsApp2
                 return;
             }
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var kontrolKomut = new SqlCommand();
@@ -87,6 +85,26 @@ namespace WinFormsApp2
         private void lblOdenmemis_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Ödenmemiş Faturalar labelına tıklandı.");
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKullaniciAdi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

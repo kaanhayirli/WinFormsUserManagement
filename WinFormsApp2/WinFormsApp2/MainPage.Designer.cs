@@ -2,164 +2,100 @@
 {
     partial class MainPage
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageFaturaEkle;
+        private System.Windows.Forms.TabPage tabPageFaturaListesi;
+        private System.Windows.Forms.TabPage tabPageFaturaTakibi;
+        private System.Windows.Forms.TabPage tabPageKullaniciBilgileri;
+        private System.Windows.Forms.TabPage tabPageProfil;
 
-        /// <summary>
-        /// Temizleme işlemi
-        /// </summary>
-        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Designer için gerekli method
-        /// </summary>
         private void InitializeComponent()
         {
-            cmbFaturaTipi = new ComboBox();
-            mainPanel = new Panel();
-            faturaIslemleriToolStripMenuItem = new ToolStripMenuItem();
-            faturaEkleToolStripMenuItem = new ToolStripMenuItem();
-            faturaListesiToolStripMenuItem = new ToolStripMenuItem();
-            faturaTakibiToolStripMenuItem = new ToolStripMenuItem();
-            kullaniciIslemleriToolStripMenuItem = new ToolStripMenuItem();
-            kullaniciBilgileriToolStripMenuItem = new ToolStripMenuItem();
-            kullanıcıProfiliToolStripMenuItem = new ToolStripMenuItem();
-            cikisToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1 = new MenuStrip();
-            menuStrip1.SuspendLayout();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPageFaturaEkle = new System.Windows.Forms.TabPage();
+            tabPageFaturaListesi = new System.Windows.Forms.TabPage();
+            tabPageFaturaTakibi = new System.Windows.Forms.TabPage();
+            tabPageKullaniciBilgileri = new System.Windows.Forms.TabPage();
+            tabPageProfil = new System.Windows.Forms.TabPage();
+
+            tabControl1.SuspendLayout();
             SuspendLayout();
+
             // 
-            // cmbFaturaTipi
+            // tabControl1
             // 
-            cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbFaturaTipi.FormattingEnabled = true;
-            cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira" });
-            cmbFaturaTipi.Location = new Point(16, 42);
-            cmbFaturaTipi.Margin = new Padding(4, 5, 4, 5);
-            cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(160, 28);
-            cmbFaturaTipi.TabIndex = 1;
+            tabControl1.Controls.Add(tabPageFaturaEkle);
+            tabControl1.Controls.Add(tabPageFaturaListesi);
+            tabControl1.Controls.Add(tabPageFaturaTakibi);
+            tabControl1.Controls.Add(tabPageKullaniciBilgileri);
+            tabControl1.Controls.Add(tabPageProfil);
+            tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            tabControl1.ItemSize = new System.Drawing.Size(140, 35);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.Appearance = TabAppearance.Normal;
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(1000, 600);
+            tabControl1.TabIndex = 0;
+            tabControl1.BackColor = System.Drawing.Color.WhiteSmoke;
+
             // 
-            // mainPanel
+            // tabPageFaturaEkle
             // 
-            mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(0, 30);
-            mainPanel.Margin = new Padding(4, 5, 4, 5);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(407, 225);
-            mainPanel.TabIndex = 2;
+            tabPageFaturaEkle.BackColor = System.Drawing.Color.White;
+            tabPageFaturaEkle.Text = "Fatura Ekle";
+            tabPageFaturaEkle.Padding = new Padding(10);
+
             // 
-            // faturaIslemleriToolStripMenuItem
+            // tabPageFaturaListesi
             // 
-            faturaIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { faturaEkleToolStripMenuItem, faturaListesiToolStripMenuItem, faturaTakibiToolStripMenuItem });
-            faturaIslemleriToolStripMenuItem.Name = "faturaIslemleriToolStripMenuItem";
-            faturaIslemleriToolStripMenuItem.Size = new Size(123, 24);
-            faturaIslemleriToolStripMenuItem.Text = "Fatura İşlemleri";
+            tabPageFaturaListesi.BackColor = System.Drawing.Color.White;
+            tabPageFaturaListesi.Text = "Fatura Listesi";
+            tabPageFaturaListesi.Padding = new Padding(10);
+
             // 
-            // faturaEkleToolStripMenuItem
+            // tabPageFaturaTakibi
             // 
-            faturaEkleToolStripMenuItem.Name = "faturaEkleToolStripMenuItem";
-            faturaEkleToolStripMenuItem.Size = new Size(176, 26);
-            faturaEkleToolStripMenuItem.Text = "Fatura Ekle";
-            faturaEkleToolStripMenuItem.Click += faturaEkleToolStripMenuItem_Click;
+            tabPageFaturaTakibi.BackColor = System.Drawing.Color.White;
+            tabPageFaturaTakibi.Text = "Fatura Takibi";
+            tabPageFaturaTakibi.Padding = new Padding(10);
+
             // 
-            // faturaListesiToolStripMenuItem
+            // tabPageKullaniciBilgileri
             // 
-            faturaListesiToolStripMenuItem.Name = "faturaListesiToolStripMenuItem";
-            faturaListesiToolStripMenuItem.Size = new Size(176, 26);
-            faturaListesiToolStripMenuItem.Text = "Fatura Listesi";
-            faturaListesiToolStripMenuItem.Click += faturaListesiToolStripMenuItem_Click;
+            tabPageKullaniciBilgileri.BackColor = System.Drawing.Color.White;
+            tabPageKullaniciBilgileri.Text = "Kullanıcı Bilgileri";
+            tabPageKullaniciBilgileri.Padding = new Padding(10);
+
             // 
-            // faturaTakibiToolStripMenuItem
+            // tabPageProfil
             // 
-            faturaTakibiToolStripMenuItem.Name = "faturaTakibiToolStripMenuItem";
-            faturaTakibiToolStripMenuItem.Size = new Size(176, 26);
-            faturaTakibiToolStripMenuItem.Text = "Fatura Takibi";
-            faturaTakibiToolStripMenuItem.Click += faturaTakibiToolStripMenuItem_Click;
-            // 
-            // kullaniciIslemleriToolStripMenuItem
-            // 
-            kullaniciIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullaniciBilgileriToolStripMenuItem, kullanıcıProfiliToolStripMenuItem });
-            kullaniciIslemleriToolStripMenuItem.Name = "kullaniciIslemleriToolStripMenuItem";
-            kullaniciIslemleriToolStripMenuItem.Size = new Size(139, 24);
-            kullaniciIslemleriToolStripMenuItem.Text = "Kullanıcı İşlemleri";
-            // 
-            // kullaniciBilgileriToolStripMenuItem
-            // 
-            kullaniciBilgileriToolStripMenuItem.Name = "kullaniciBilgileriToolStripMenuItem";
-            kullaniciBilgileriToolStripMenuItem.Size = new Size(203, 26);
-            kullaniciBilgileriToolStripMenuItem.Text = "Kullanıcı Bilgileri";
-            kullaniciBilgileriToolStripMenuItem.Click += kullaniciBilgileriToolStripMenuItem_Click;
-            // 
-            // kullanıcıProfiliToolStripMenuItem
-            // 
-            kullanıcıProfiliToolStripMenuItem.Name = "kullanıcıProfiliToolStripMenuItem";
-            kullanıcıProfiliToolStripMenuItem.Size = new Size(203, 26);
-            kullanıcıProfiliToolStripMenuItem.Text = "Profil";
-            kullanıcıProfiliToolStripMenuItem.Click += profilToolStripMenuItem1_Click;
-            // 
-            // cikisToolStripMenuItem
-            // 
-            cikisToolStripMenuItem.Name = "cikisToolStripMenuItem";
-            cikisToolStripMenuItem.Size = new Size(53, 24);
-            cikisToolStripMenuItem.Text = "Çıkış";
-            cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { faturaIslemleriToolStripMenuItem, kullaniciIslemleriToolStripMenuItem, cikisToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(8, 3, 0, 3);
-            menuStrip1.Size = new Size(407, 30);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            tabPageProfil.BackColor = System.Drawing.Color.White;
+            tabPageProfil.Text = "Profil";
+            tabPageProfil.Padding = new Padding(10);
+
             // 
             // MainPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(407, 255);
-            Controls.Add(mainPanel);
-            Controls.Add(cmbFaturaTipi);
-            Controls.Add(menuStrip1);
-            IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 5, 4, 5);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1000, 600);
+            BackColor = System.Drawing.Color.WhiteSmoke;
+            Controls.Add(tabControl1);
             Name = "MainPage";
             Text = "Ana Sayfa";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            StartPosition = FormStartPosition.CenterScreen;
+            Load += MainPage_Load;
+            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
-
         }
-
-        #endregion
-        private System.Windows.Forms.ToolStripMenuItem sifreDegistirToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cmbFaturaTipi;
-        private System.Windows.Forms.Panel mainPanel;
-        private ToolStripMenuItem faturaIslemleriToolStripMenuItem;
-        private ToolStripMenuItem faturaEkleToolStripMenuItem;
-        private ToolStripMenuItem faturaListesiToolStripMenuItem;
-        private ToolStripMenuItem faturaTakibiToolStripMenuItem;
-        private ToolStripMenuItem kullaniciIslemleriToolStripMenuItem;
-        private ToolStripMenuItem kullaniciBilgileriToolStripMenuItem;
-        private ToolStripMenuItem kullanıcıProfiliToolStripMenuItem;
-        private ToolStripMenuItem cikisToolStripMenuItem;
-        private MenuStrip menuStrip1;
     }
 }

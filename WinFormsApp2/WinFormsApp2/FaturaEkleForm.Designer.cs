@@ -47,30 +47,30 @@
             // 
             cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
-            cmbFaturaTipi.Location = new Point(190, 59);
+            cmbFaturaTipi.Location = new Point(221, 62);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(200, 28);
+            cmbFaturaTipi.Size = new Size(200, 33);
             cmbFaturaTipi.TabIndex = 1;
             // 
             // txtTutar
             // 
-            txtTutar.Location = new Point(190, 99);
+            txtTutar.Location = new Point(221, 102);
             txtTutar.Name = "txtTutar";
-            txtTutar.Size = new Size(200, 27);
+            txtTutar.Size = new Size(200, 32);
             txtTutar.TabIndex = 2;
             // 
             // dtpSonTarih
             // 
-            dtpSonTarih.Location = new Point(190, 139);
+            dtpSonTarih.Location = new Point(221, 142);
             dtpSonTarih.Name = "dtpSonTarih";
-            dtpSonTarih.Size = new Size(200, 27);
+            dtpSonTarih.Size = new Size(200, 32);
             dtpSonTarih.TabIndex = 3;
             // 
             // txtAciklama
             // 
-            txtAciklama.Location = new Point(190, 179);
+            txtAciklama.Location = new Point(221, 182);
             txtAciklama.Name = "txtAciklama";
-            txtAciklama.Size = new Size(200, 27);
+            txtAciklama.Size = new Size(200, 32);
             txtAciklama.TabIndex = 4;
             // 
             // btnKaydet
@@ -79,7 +79,7 @@
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnKaydet.ForeColor = Color.White;
-            btnKaydet.Location = new Point(190, 219);
+            btnKaydet.Location = new Point(221, 222);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(200, 48);
             btnKaydet.TabIndex = 5;
@@ -92,7 +92,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(43, 62);
             label1.Name = "label1";
-            label1.Size = new Size(85, 20);
+            label1.Size = new Size(112, 25);
             label1.TabIndex = 7;
             label1.Text = "Fatura Türü:";
             // 
@@ -101,7 +101,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(43, 102);
             label2.Name = "label2";
-            label2.Size = new Size(43, 20);
+            label2.Size = new Size(56, 25);
             label2.TabIndex = 8;
             label2.Text = "Tutar";
             // 
@@ -110,7 +110,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(43, 144);
             label3.Name = "label3";
-            label3.Size = new Size(126, 20);
+            label3.Size = new Size(161, 25);
             label3.TabIndex = 9;
             label3.Text = "Son Ödeme Tarihi";
             // 
@@ -119,7 +119,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(43, 182);
             label4.Name = "label4";
-            label4.Size = new Size(70, 20);
+            label4.Size = new Size(88, 25);
             label4.TabIndex = 10;
             label4.Text = "Açıklama";
             // 
@@ -137,6 +137,8 @@
             Controls.Add(dtpSonTarih);
             Controls.Add(txtAciklama);
             Controls.Add(btnKaydet);
+            Font = new Font("Segoe UI", 11F);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaEkleForm";
             Text = "Fatura Ekle";
             ResumeLayout(false);

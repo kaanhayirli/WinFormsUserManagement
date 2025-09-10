@@ -30,8 +30,7 @@ namespace WinFormsApp2
                 return;
             }
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();

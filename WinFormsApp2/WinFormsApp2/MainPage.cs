@@ -11,54 +11,46 @@ namespace WinFormsApp2
         public MainPage()
         {
             InitializeComponent();
+            this.FormClosed += MainPage_FormClosed;
         }
 
-        private void faturaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var form = new FaturaEkleForm();
-            form.ShowDialog();
+            Application.Exit();
         }
 
-        private void faturaListesiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainPage_Load(object sender, EventArgs e)
         {
-            var form = new FaturaListesiForm();
-            form.ShowDialog();
-        }
 
-        private void faturaTakibiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = new FaturaTakibiForm();
-            form.ShowDialog();
-        }
+            var faturaEkleForm = new FaturaEkleForm();
+            faturaEkleForm.TopLevel = false;
+            faturaEkleForm.Dock = DockStyle.Fill;
+            tabPageFaturaEkle.Controls.Add(faturaEkleForm);
+            faturaEkleForm.Show();
 
-        private void kullaniciBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = new KullaniciBilgileriForm();
-            form.ShowDialog();
-        }
+            var faturaListesiForm = new FaturaListesiForm();
+            faturaListesiForm.TopLevel = false;
+            faturaListesiForm.Dock = DockStyle.Fill;
+            tabPageFaturaListesi.Controls.Add(faturaListesiForm);
+            faturaListesiForm.Show();
 
-        private void sifreDegistirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Aktif kullanıcı ID'sini ProfilForm'a gönderiyoruz.
-            var form = new ProfilForm(AktifKullaniciId);
-            form.ShowDialog();
-        }
+            var faturaTakibiForm = new FaturaTakibiForm();
+            faturaTakibiForm.TopLevel = false;
+            faturaTakibiForm.Dock = DockStyle.Fill;
+            tabPageFaturaTakibi.Controls.Add(faturaTakibiForm);
+            faturaTakibiForm.Show();
 
-        private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var kullaniciBilgileriForm = new KullaniciBilgileriForm();
+            kullaniciBilgileriForm.TopLevel = false;
+            kullaniciBilgileriForm.Dock = DockStyle.Fill;
+            tabPageKullaniciBilgileri.Controls.Add(kullaniciBilgileriForm);
+            kullaniciBilgileriForm.Show();
 
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            // Eğer ayrı bir profil menüsü varsa, burada da ProfilForm açabilirsin.
-            var form = new ProfilForm(AktifKullaniciId);
-            form.ShowDialog();
+            var profilForm = new ProfilForm(AktifKullaniciId);
+            profilForm.TopLevel = false;
+            profilForm.Dock = DockStyle.Fill;
+            tabPageProfil.Controls.Add(profilForm);
+            profilForm.Show();
         }
     }
 }

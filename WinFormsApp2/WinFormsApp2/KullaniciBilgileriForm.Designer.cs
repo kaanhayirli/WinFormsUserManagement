@@ -29,19 +29,20 @@
             kullaniciTablosu.AllowUserToDeleteRows = false;
             kullaniciTablosu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             kullaniciTablosu.ColumnHeadersHeight = 29;
-            kullaniciTablosu.Location = new Point(39, 81);
+            kullaniciTablosu.Location = new Point(78, 49);
             kullaniciTablosu.MultiSelect = false;
             kullaniciTablosu.Name = "kullaniciTablosu";
             kullaniciTablosu.ReadOnly = true;
             kullaniciTablosu.RowHeadersWidth = 51;
             kullaniciTablosu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            kullaniciTablosu.Size = new Size(380, 182);
+            kullaniciTablosu.Size = new Size(442, 235);
             kullaniciTablosu.TabIndex = 0;
+            kullaniciTablosu.CellContentClick += kullaniciTablosu_CellContentClick_1;
             // 
             // btnSil
             // 
             btnSil.BackColor = Color.Red;
-            btnSil.Location = new Point(133, 269);
+            btnSil.Location = new Point(198, 290);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(180, 35);
             btnSil.TabIndex = 1;
@@ -54,7 +55,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label1.Location = new Point(111, 24);
+            label1.Location = new Point(171, 9);
             label1.Name = "label1";
             label1.Size = new Size(234, 37);
             label1.TabIndex = 2;
@@ -63,10 +64,11 @@
             // KullaniciBilgileriForm
             // 
             BackColor = Color.White;
-            ClientSize = new Size(452, 327);
+            ClientSize = new Size(605, 353);
             Controls.Add(label1);
             Controls.Add(kullaniciTablosu);
             Controls.Add(btnSil);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "KullaniciBilgileriForm";
             ((System.ComponentModel.ISupportInitialize)kullaniciTablosu).EndInit();
             ResumeLayout(false);
