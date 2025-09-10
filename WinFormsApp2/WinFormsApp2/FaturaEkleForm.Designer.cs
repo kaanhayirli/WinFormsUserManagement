@@ -35,10 +35,11 @@
             // 
             // lblTitle
             // 
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblTitle.Location = new Point(125, 9);
+            lblTitle.Dock = DockStyle.Top;
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(200, 40);
+            lblTitle.Size = new Size(457, 40);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Ekle";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -46,31 +47,34 @@
             // cmbFaturaTipi
             // 
             cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFaturaTipi.Font = new Font("Segoe UI", 12F);
             cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
             cmbFaturaTipi.Location = new Point(221, 62);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(200, 33);
+            cmbFaturaTipi.Size = new Size(200, 36);
             cmbFaturaTipi.TabIndex = 1;
             // 
             // txtTutar
             // 
+            txtTutar.Font = new Font("Segoe UI", 12F);
             txtTutar.Location = new Point(221, 102);
             txtTutar.Name = "txtTutar";
-            txtTutar.Size = new Size(200, 32);
+            txtTutar.Size = new Size(200, 34);
             txtTutar.TabIndex = 2;
             // 
             // dtpSonTarih
             // 
             dtpSonTarih.Location = new Point(221, 142);
             dtpSonTarih.Name = "dtpSonTarih";
-            dtpSonTarih.Size = new Size(200, 32);
+            dtpSonTarih.Size = new Size(200, 34);
             dtpSonTarih.TabIndex = 3;
             // 
             // txtAciklama
             // 
+            txtAciklama.Font = new Font("Segoe UI", 12F);
             txtAciklama.Location = new Point(221, 182);
             txtAciklama.Name = "txtAciklama";
-            txtAciklama.Size = new Size(200, 32);
+            txtAciklama.Size = new Size(200, 34);
             txtAciklama.TabIndex = 4;
             // 
             // btnKaydet
@@ -92,7 +96,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(43, 62);
             label1.Name = "label1";
-            label1.Size = new Size(112, 25);
+            label1.Size = new Size(114, 28);
             label1.TabIndex = 7;
             label1.Text = "Fatura Türü:";
             // 
@@ -101,7 +105,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(43, 102);
             label2.Name = "label2";
-            label2.Size = new Size(56, 25);
+            label2.Size = new Size(57, 28);
             label2.TabIndex = 8;
             label2.Text = "Tutar";
             // 
@@ -110,7 +114,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(43, 144);
             label3.Name = "label3";
-            label3.Size = new Size(161, 25);
+            label3.Size = new Size(166, 28);
             label3.TabIndex = 9;
             label3.Text = "Son Ödeme Tarihi";
             // 
@@ -119,14 +123,14 @@
             label4.AutoSize = true;
             label4.Location = new Point(43, 182);
             label4.Name = "label4";
-            label4.Size = new Size(88, 25);
+            label4.Size = new Size(91, 28);
             label4.TabIndex = 10;
             label4.Text = "Açıklama";
             // 
             // FaturaEkleForm
             // 
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(467, 303);
+            ClientSize = new Size(457, 315);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -137,9 +141,10 @@
             Controls.Add(dtpSonTarih);
             Controls.Add(txtAciklama);
             Controls.Add(btnKaydet);
-            Font = new Font("Segoe UI", 11F);
+            Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaEkleForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Fatura Ekle";
             ResumeLayout(false);
             PerformLayout();
