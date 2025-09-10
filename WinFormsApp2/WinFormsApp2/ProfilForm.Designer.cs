@@ -47,7 +47,6 @@
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Profil";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            lblTitle.Click += lblTitle_Click;
             // 
             // txtFullName
             // 
@@ -93,7 +92,6 @@
             txtYeniSifre.PlaceholderText = "Yeni Şifre";
             txtYeniSifre.Size = new Size(180, 27);
             txtYeniSifre.TabIndex = 9;
-            txtYeniSifre.TextChanged += txtYeniSifre_TextChanged;
             // 
             // btnSifreDegistir
             // 
@@ -121,7 +119,6 @@
             lblTelefon.Size = new Size(61, 20);
             lblTelefon.TabIndex = 12;
             lblTelefon.Text = "Telefon:";
-            lblTelefon.Click += label2_Click;
             // 
             // lblKullaniciAdi
             // 
@@ -162,12 +159,12 @@
 
         private void txtEskiSifre_TextChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void lblSifreDegistir_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

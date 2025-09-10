@@ -27,7 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            cmbFaturaTipi = new ComboBox();
+            mainPanel = new Panel();
             faturaIslemleriToolStripMenuItem = new ToolStripMenuItem();
             faturaEkleToolStripMenuItem = new ToolStripMenuItem();
             faturaListesiToolStripMenuItem = new ToolStripMenuItem();
@@ -36,21 +37,29 @@
             kullaniciBilgileriToolStripMenuItem = new ToolStripMenuItem();
             kullanıcıProfiliToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
-            cmbFaturaTipi = new ComboBox();
-            mainPanel = new Panel();
+            menuStrip1 = new MenuStrip();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // cmbFaturaTipi
             // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { faturaIslemleriToolStripMenuItem, kullaniciIslemleriToolStripMenuItem, cikisToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(8, 3, 0, 3);
-            menuStrip1.Size = new Size(407, 30);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFaturaTipi.FormattingEnabled = true;
+            cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira" });
+            cmbFaturaTipi.Location = new Point(16, 42);
+            cmbFaturaTipi.Margin = new Padding(4, 5, 4, 5);
+            cmbFaturaTipi.Name = "cmbFaturaTipi";
+            cmbFaturaTipi.Size = new Size(160, 28);
+            cmbFaturaTipi.TabIndex = 1;
+            // 
+            // mainPanel
+            // 
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(0, 30);
+            mainPanel.Margin = new Padding(4, 5, 4, 5);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(407, 225);
+            mainPanel.TabIndex = 2;
             // 
             // faturaIslemleriToolStripMenuItem
             // 
@@ -108,25 +117,16 @@
             cikisToolStripMenuItem.Text = "Çıkış";
             cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
             // 
-            // cmbFaturaTipi
+            // menuStrip1
             // 
-            cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbFaturaTipi.FormattingEnabled = true;
-            cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira" });
-            cmbFaturaTipi.Location = new Point(16, 42);
-            cmbFaturaTipi.Margin = new Padding(4, 5, 4, 5);
-            cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(160, 28);
-            cmbFaturaTipi.TabIndex = 1;
-            // 
-            // mainPanel
-            // 
-            mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(0, 30);
-            mainPanel.Margin = new Padding(4, 5, 4, 5);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(407, 225);
-            mainPanel.TabIndex = 2;
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { faturaIslemleriToolStripMenuItem, kullaniciIslemleriToolStripMenuItem, cikisToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(8, 3, 0, 3);
+            menuStrip1.Size = new Size(407, 30);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // MainPage
             // 
@@ -149,18 +149,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem faturaIslemleriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem faturaEkleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem faturaListesiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem faturaTakibiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kullaniciIslemleriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kullaniciBilgileriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sifreDegistirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbFaturaTipi;
         private System.Windows.Forms.Panel mainPanel;
+        private ToolStripMenuItem faturaIslemleriToolStripMenuItem;
+        private ToolStripMenuItem faturaEkleToolStripMenuItem;
+        private ToolStripMenuItem faturaListesiToolStripMenuItem;
+        private ToolStripMenuItem faturaTakibiToolStripMenuItem;
+        private ToolStripMenuItem kullaniciIslemleriToolStripMenuItem;
+        private ToolStripMenuItem kullaniciBilgileriToolStripMenuItem;
         private ToolStripMenuItem kullanıcıProfiliToolStripMenuItem;
+        private ToolStripMenuItem cikisToolStripMenuItem;
+        private MenuStrip menuStrip1;
     }
 }

@@ -58,20 +58,5 @@ namespace WinFormsApp2
             dtpSonTarih.Value = DateTime.Now;
             txtAciklama.Text = "";
         }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAciklama_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

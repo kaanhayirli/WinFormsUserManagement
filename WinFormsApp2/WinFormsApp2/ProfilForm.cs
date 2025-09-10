@@ -88,20 +88,5 @@ namespace WinFormsApp2
         {
             MessageBox.Show("Ödenmemiş Faturalar labelına tıklandı.");
         }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtYeniSifre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -42,7 +42,6 @@
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Ekle";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            lblTitle.Click += lblTitle_Click;
             // 
             // cmbFaturaTipi
             // 
@@ -73,7 +72,6 @@
             txtAciklama.Name = "txtAciklama";
             txtAciklama.Size = new Size(200, 27);
             txtAciklama.TabIndex = 4;
-            txtAciklama.TextChanged += txtAciklama_TextChanged;
             // 
             // btnKaydet
             // 
@@ -97,7 +95,6 @@
             label1.Size = new Size(85, 20);
             label1.TabIndex = 7;
             label1.Text = "Fatura Türü:";
-            label1.Click += label1_Click;
             // 
             // label2
             // 

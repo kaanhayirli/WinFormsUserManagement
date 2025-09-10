@@ -36,7 +36,6 @@
             dgvFaturaListesi.RowHeadersWidth = 51;
             dgvFaturaListesi.Size = new Size(650, 320);
             dgvFaturaListesi.TabIndex = 0;
-            dgvFaturaListesi.CellContentClick += dgvFaturaListesi_CellContentClick;
             // 
             // btnOdenen
             // 

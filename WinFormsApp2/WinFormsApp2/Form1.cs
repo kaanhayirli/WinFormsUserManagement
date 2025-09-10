@@ -53,6 +53,9 @@ namespace WinFormsApp2
                 {
                     MessageBox.Show("Kullanýcý adý veya þifre yanlýþ!");
                 }
+
+                txtLoginUsername.Text = "";
+                txtLoginPassword.Text = "";
             }
         }
         

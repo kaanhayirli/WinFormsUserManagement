@@ -43,7 +43,7 @@ namespace WinFormsApp2
             var form = new ProfilForm(AktifKullaniciId);
             form.ShowDialog();
         }
-        
+
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -53,7 +53,7 @@ namespace WinFormsApp2
                 Application.Exit();
             }
         }
-        
+
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Eğer ayrı bir profil menüsü varsa, burada da ProfilForm açabilirsin.

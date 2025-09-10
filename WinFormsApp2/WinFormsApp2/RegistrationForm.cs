@@ -75,12 +75,6 @@ namespace WinFormsApp2
             MessageBox.Show("Kayýt Baþarýlý.");
             this.Close();
         }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        
     }
 
     public class User

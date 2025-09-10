@@ -123,9 +123,5 @@ namespace WinFormsApp2
                 }
             }
         }
-        private void dgvFaturaListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
