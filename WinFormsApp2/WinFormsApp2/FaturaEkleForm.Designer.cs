@@ -75,7 +75,7 @@
             cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
             cmbFaturaTipi.Location = new Point(170, 100);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(250, 36);
+            cmbFaturaTipi.Size = new Size(295, 36);
             cmbFaturaTipi.TabIndex = 3;
             // 
             // lblTutar
@@ -92,7 +92,7 @@
             txtTutar.Font = new Font("Segoe UI", 12F);
             txtTutar.Location = new Point(170, 145);
             txtTutar.Name = "txtTutar";
-            txtTutar.Size = new Size(250, 34);
+            txtTutar.Size = new Size(295, 34);
             txtTutar.TabIndex = 5;
             // 
             // lblSonTarih
@@ -109,7 +109,7 @@
             dtpSonTarih.Font = new Font("Segoe UI", 12F);
             dtpSonTarih.Location = new Point(170, 190);
             dtpSonTarih.Name = "dtpSonTarih";
-            dtpSonTarih.Size = new Size(250, 34);
+            dtpSonTarih.Size = new Size(295, 34);
             dtpSonTarih.TabIndex = 7;
             // 
             // lblAciklama
@@ -126,7 +126,7 @@
             txtAciklama.Font = new Font("Segoe UI", 12F);
             txtAciklama.Location = new Point(170, 235);
             txtAciklama.Name = "txtAciklama";
-            txtAciklama.Size = new Size(250, 34);
+            txtAciklama.Size = new Size(295, 34);
             txtAciklama.TabIndex = 9;
             // 
             // btnKaydet
@@ -137,7 +137,7 @@
             btnKaydet.ForeColor = Color.White;
             btnKaydet.Location = new Point(170, 285);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(250, 40);
+            btnKaydet.Size = new Size(295, 40);
             btnKaydet.TabIndex = 10;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = false;

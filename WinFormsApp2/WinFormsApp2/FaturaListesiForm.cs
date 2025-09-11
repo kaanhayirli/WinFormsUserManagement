@@ -30,21 +30,12 @@ namespace WinFormsApp2
                 baglanti.Open();
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "SELECT Id, Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi FROM Faturalar";
+                komut.CommandText = "SELECT Id AS [Id], Tur AS [Fatura Türü], Tutar AS [Tutar], SonOdemeTarihi AS [S.Ö.T], Aciklama AS [Açıklama], OdendiMi AS [Durum] FROM Faturalar";
                 var adapter = new SqlDataAdapter(komut);
                 var dataTable = new System.Data.DataTable();
                 adapter.Fill(dataTable);
                 dgvFaturaListesi.DataSource = dataTable;
                 var veriOkuyucu = komut.ExecuteReader();
-
-                while (veriOkuyucu.Read())
-                {
-                    string odendiMiText = "Hayır";
-                    if (veriOkuyucu["OdendiMi"] != null && Convert.ToBoolean(veriOkuyucu["OdendiMi"]) == true)
-                    {
-                        odendiMiText = "Evet";
-                    }
-                }
             }
         }
 
@@ -56,9 +47,9 @@ namespace WinFormsApp2
                 return;
             }
             var row = dgvFaturaListesi.SelectedRows[0];
-            string faturaTipi = row.Cells["Tur"].Value.ToString();
+            string faturaTipi = row.Cells["Fatura Türü"].Value.ToString();
             decimal tutar = Convert.ToDecimal(row.Cells["Tutar"].Value);
-            string sonTarih = row.Cells["SonOdemeTarihi"].Value.ToString();
+            string sonTarih = row.Cells["S.Ö.T"].Value.ToString();
 
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
