@@ -3,8 +3,10 @@
     partial class FaturaListesiForm
     {
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvFaturaListesi;
         private System.Windows.Forms.Button btnOdenen;
+        private System.Windows.Forms.Button btnSil;
 
         protected override void Dispose(bool disposing)
         {
@@ -17,72 +19,100 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            lblTitle = new Label();
             dgvFaturaListesi = new DataGridView();
             btnOdenen = new Button();
-            label1 = new Label();
             btnSil = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFaturaListesi).BeginInit();
             SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.Location = new Point(0, 10);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(800, 45);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Fatura Listesi";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dgvFaturaListesi
             // 
             dgvFaturaListesi.AllowUserToAddRows = false;
             dgvFaturaListesi.AllowUserToDeleteRows = false;
+            dgvFaturaListesi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvFaturaListesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFaturaListesi.ColumnHeadersHeight = 29;
-            dgvFaturaListesi.Location = new Point(12, 99);
+            dgvFaturaListesi.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvFaturaListesi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvFaturaListesi.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFaturaListesi.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvFaturaListesi.Location = new Point(30, 70);
             dgvFaturaListesi.Name = "dgvFaturaListesi";
             dgvFaturaListesi.ReadOnly = true;
             dgvFaturaListesi.RowHeadersWidth = 51;
-            dgvFaturaListesi.Size = new Size(650, 320);
-            dgvFaturaListesi.TabIndex = 0;
+            dgvFaturaListesi.RowTemplate.Height = 32;
+            dgvFaturaListesi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFaturaListesi.Size = new Size(721, 320);
+            dgvFaturaListesi.TabIndex = 1;
             // 
             // btnOdenen
             // 
             btnOdenen.BackColor = Color.MediumSeaGreen;
-            btnOdenen.Location = new Point(12, 429);
+            btnOdenen.FlatStyle = FlatStyle.Flat;
+            btnOdenen.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnOdenen.ForeColor = Color.White;
+            btnOdenen.Location = new Point(30, 410);
             btnOdenen.Name = "btnOdenen";
-            btnOdenen.Size = new Size(220, 40);
-            btnOdenen.TabIndex = 1;
+            btnOdenen.Size = new Size(237, 40);
+            btnOdenen.TabIndex = 2;
             btnOdenen.Text = "Ödendi Olarak İşaretle";
             btnOdenen.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label1.Location = new Point(249, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(185, 37);
-            label1.TabIndex = 2;
-            label1.Text = "Fatura Listesi";
-            // 
             // btnSil
             // 
-            btnSil.BackColor = Color.Red;
-            btnSil.Location = new Point(258, 429);
+            btnSil.BackColor = Color.IndianRed;
+            btnSil.FlatStyle = FlatStyle.Flat;
+            btnSil.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSil.ForeColor = Color.White;
+            btnSil.Location = new Point(285, 410);
             btnSil.Name = "btnSil";
-            btnSil.Size = new Size(220, 40);
+            btnSil.Size = new Size(200, 40);
             btnSil.TabIndex = 3;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = false;
             // 
             // FaturaListesiForm
             // 
-            BackColor = Color.White;
-            ClientSize = new Size(681, 480);
-            Controls.Add(btnSil);
-            Controls.Add(label1);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(781, 480);
+            Controls.Add(lblTitle);
             Controls.Add(dgvFaturaListesi);
             Controls.Add(btnOdenen);
+            Controls.Add(btnSil);
+            Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.None;
+            MinimumSize = new Size(700, 480);
             Name = "FaturaListesiForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Fatura Listesi";
             ((System.ComponentModel.ISupportInitialize)dgvFaturaListesi).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
-        private Label label1;
-        private Button btnSil;
     }
 }

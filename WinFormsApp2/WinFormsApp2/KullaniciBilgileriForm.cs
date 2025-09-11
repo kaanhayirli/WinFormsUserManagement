@@ -21,25 +21,22 @@ namespace WinFormsApp2
 
         private void LoadKullaniciBilgileri()
         {
-            kullaniciTablosu.Rows.Clear();
-            kullaniciTablosu.Columns.Clear();
-            kullaniciTablosu.Columns.Add("Id", "Id");
-            kullaniciTablosu.Columns.Add("FullName", "Ad Soyad");
-            kullaniciTablosu.Columns.Add("Phone", "Telefon");
+            //kullaniciTablosu.Rows.Clear();
+            //kullaniciTablosu.Columns.Clear();
+            //kullaniciTablosu.Columns.Add("Id", "Id");
+            //kullaniciTablosu.Columns.Add("FullName", "Ad Soyad");
+            //kullaniciTablosu.Columns.Add("Phone", "Telefon");
 
-            string baglantiString = "Server=KAAN-PC;Database=UserDB;User Id=sa;Password=Aa123456!;TrustServerCertificate=True;";
-            using (var baglanti = new SqlConnection(baglantiString))
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "SELECT Id, FullName, Phone FROM Users";
-                var veriOkuyucu = komut.ExecuteReader();
-
-                while (veriOkuyucu.Read())
-                {
-                    kullaniciTablosu.Rows.Add(veriOkuyucu["Id"], veriOkuyucu["FullName"], veriOkuyucu["Phone"]);
-                }
+                komut.CommandText = "SELECT Id AS [Id], FullName AS [Ad Soyad], Phone AS [Telefon] FROM Users";
+                var dt = new System.Data.DataTable();
+                var adapter = new SqlDataAdapter(komut);
+                adapter.Fill(dt);
+                kullaniciTablosu.DataSource = dt;
             }
         }
 

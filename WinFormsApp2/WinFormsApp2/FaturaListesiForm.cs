@@ -16,14 +16,14 @@ namespace WinFormsApp2
 
         private void LoadFaturalar()
         {
-            dgvFaturaListesi.Rows.Clear();//sor burayı
-            dgvFaturaListesi.Columns.Clear();//sor burayı
-            dgvFaturaListesi.Columns.Add("Id", "Id");
-            dgvFaturaListesi.Columns.Add("Tur", "Fatura Tipi");
-            dgvFaturaListesi.Columns.Add("Tutar", "Tutar");
-            dgvFaturaListesi.Columns.Add("SonOdemeTarihi", "Son Tarih");
-            dgvFaturaListesi.Columns.Add("Aciklama", "Açıklama");
-            dgvFaturaListesi.Columns.Add("OdendiMi", "Ödendi mi?");
+            //dgvFaturaListesi.Rows.Clear();//sor burayı
+            //dgvFaturaListesi.Columns.Clear();//sor burayı
+            //dgvFaturaListesi.Columns.Add("Id", "Id");
+            //dgvFaturaListesi.Columns.Add("Tur", "Fatura Tipi");
+            //dgvFaturaListesi.Columns.Add("Tutar", "Tutar");
+            //dgvFaturaListesi.Columns.Add("SonOdemeTarihi", "Son Tarih");
+            //dgvFaturaListesi.Columns.Add("Aciklama", "Açıklama");
+            //dgvFaturaListesi.Columns.Add("OdendiMi", "Ödendi mi?");
 
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
@@ -31,6 +31,10 @@ namespace WinFormsApp2
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "SELECT Id, Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi FROM Faturalar";
+                var adapter = new SqlDataAdapter(komut);
+                var dataTable = new System.Data.DataTable();
+                adapter.Fill(dataTable);
+                dgvFaturaListesi.DataSource = dataTable;
                 var veriOkuyucu = komut.ExecuteReader();
 
                 while (veriOkuyucu.Read())
@@ -40,13 +44,6 @@ namespace WinFormsApp2
                     {
                         odendiMiText = "Evet";
                     }
-
-                    dgvFaturaListesi.Rows.Add(
-                        veriOkuyucu["Id"].ToString(),
-                        veriOkuyucu["Tur"].ToString(),
-                        veriOkuyucu["Tutar"].ToString(),
-                        Convert.ToDateTime(veriOkuyucu["SonOdemeTarihi"]).ToShortDateString(),
-                        veriOkuyucu["Aciklama"].ToString(), odendiMiText);
                 }
             }
         }

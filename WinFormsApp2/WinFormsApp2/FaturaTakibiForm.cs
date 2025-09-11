@@ -14,17 +14,20 @@ namespace WinFormsApp2
 
         private void LoadKullaniciBorclari()
         {
-            dgvFaturaTakibi.Rows.Clear();//sor burayı
-            dgvFaturaTakibi.Columns.Clear();//sor burayı
-            dgvFaturaTakibi.Columns.Add("FullName", "Ad Soyad");
-            dgvFaturaTakibi.Columns.Add("TotalDebt", "Toplam Borç");
- 
+            //dgvFaturaTakibi.Rows.Clear();//sor burayı
+            //dgvFaturaTakibi.Columns.Clear();//sor burayı
+            //dgvFaturaTakibi.Columns.Add("FullName", "Ad Soyad");
+            //dgvFaturaTakibi.Columns.Add("TotalDebt", "Toplam Borç");
+
+            var dt = new System.Data.DataTable();
+            dt.Columns.Add("Ad Soyad", typeof(string));
+            dt.Columns.Add("Toplam Borç", typeof(string));
 
             int kullaniciSayisi = 0;
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
-                
+
                 var komutKullanici = new SqlCommand();
                 komutKullanici.Connection = baglanti;
                 komutKullanici.CommandText = "SELECT COUNT(*) FROM Users";
@@ -33,7 +36,6 @@ namespace WinFormsApp2
                 var komutFatura = new SqlCommand();
                 komutFatura.Connection = baglanti;
                 komutFatura.CommandText = "SELECT SUM(Tutar) FROM Faturalar WHERE OdendiMi=0";
-
                 decimal toplamFatura = komutFatura.ExecuteScalar() != DBNull.Value ? Convert.ToDecimal(komutFatura.ExecuteScalar()) : 0;
                 decimal kisiBorcu = kullaniciSayisi > 0 ? toplamFatura / kullaniciSayisi : 0;
 
@@ -43,9 +45,10 @@ namespace WinFormsApp2
                 var veriOkuyucu = komutListe.ExecuteReader();
                 while (veriOkuyucu.Read())
                 {
-                    dgvFaturaTakibi.Rows.Add(veriOkuyucu["FullName"].ToString(), kisiBorcu.ToString("C2"));
+                    dt.Rows.Add(veriOkuyucu["FullName"].ToString(), kisiBorcu.ToString("C2"));
                 }
             }
+            dgvFaturaTakibi.DataSource = dt;
         }
     }
 }

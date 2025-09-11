@@ -4,9 +4,14 @@
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblZorunlu;
+        private System.Windows.Forms.Label lblFaturaTipi;
         private System.Windows.Forms.ComboBox cmbFaturaTipi;
+        private System.Windows.Forms.Label lblTutar;
         private System.Windows.Forms.TextBox txtTutar;
+        private System.Windows.Forms.Label lblSonTarih;
         private System.Windows.Forms.DateTimePicker dtpSonTarih;
+        private System.Windows.Forms.Label lblAciklama;
         private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.Button btnKaydet;
 
@@ -22,123 +27,135 @@
         private void InitializeComponent()
         {
             lblTitle = new Label();
+            lblZorunlu = new Label();
+            lblFaturaTipi = new Label();
             cmbFaturaTipi = new ComboBox();
+            lblTutar = new Label();
             txtTutar = new TextBox();
+            lblSonTarih = new Label();
             dtpSonTarih = new DateTimePicker();
+            lblAciklama = new Label();
             txtAciklama = new TextBox();
             btnKaydet = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             SuspendLayout();
             // 
             // lblTitle
             // 
-            lblTitle.Dock = DockStyle.Top;
-            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.Location = new Point(0, 0);
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.Location = new Point(0, 10);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(457, 40);
+            lblTitle.Size = new Size(500, 45);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Ekle";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblZorunlu
+            // 
+            lblZorunlu.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
+            lblZorunlu.ForeColor = Color.IndianRed;
+            lblZorunlu.Location = new Point(30, 60);
+            lblZorunlu.Name = "lblZorunlu";
+            lblZorunlu.Size = new Size(300, 25);
+            lblZorunlu.TabIndex = 1;
+            lblZorunlu.Text = "* ile işaretli alanlar zorunludur.";
+            // 
+            // lblFaturaTipi
+            // 
+            lblFaturaTipi.Font = new Font("Segoe UI", 12F);
+            lblFaturaTipi.Location = new Point(30, 100);
+            lblFaturaTipi.Name = "lblFaturaTipi";
+            lblFaturaTipi.Size = new Size(120, 30);
+            lblFaturaTipi.TabIndex = 2;
+            lblFaturaTipi.Text = "Fatura Türü *";
             // 
             // cmbFaturaTipi
             // 
             cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFaturaTipi.Font = new Font("Segoe UI", 12F);
             cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
-            cmbFaturaTipi.Location = new Point(221, 62);
+            cmbFaturaTipi.Location = new Point(170, 100);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
-            cmbFaturaTipi.Size = new Size(200, 36);
-            cmbFaturaTipi.TabIndex = 1;
+            cmbFaturaTipi.Size = new Size(250, 36);
+            cmbFaturaTipi.TabIndex = 3;
+            // 
+            // lblTutar
+            // 
+            lblTutar.Font = new Font("Segoe UI", 12F);
+            lblTutar.Location = new Point(30, 145);
+            lblTutar.Name = "lblTutar";
+            lblTutar.Size = new Size(120, 30);
+            lblTutar.TabIndex = 4;
+            lblTutar.Text = "Tutar *";
             // 
             // txtTutar
             // 
             txtTutar.Font = new Font("Segoe UI", 12F);
-            txtTutar.Location = new Point(221, 102);
+            txtTutar.Location = new Point(170, 145);
             txtTutar.Name = "txtTutar";
-            txtTutar.Size = new Size(200, 34);
-            txtTutar.TabIndex = 2;
+            txtTutar.Size = new Size(250, 34);
+            txtTutar.TabIndex = 5;
+            // 
+            // lblSonTarih
+            // 
+            lblSonTarih.Font = new Font("Segoe UI", 12F);
+            lblSonTarih.Location = new Point(30, 190);
+            lblSonTarih.Name = "lblSonTarih";
+            lblSonTarih.Size = new Size(130, 30);
+            lblSonTarih.TabIndex = 6;
+            lblSonTarih.Text = "Son Ödeme Tarihi";
             // 
             // dtpSonTarih
             // 
-            dtpSonTarih.Location = new Point(221, 142);
+            dtpSonTarih.Font = new Font("Segoe UI", 12F);
+            dtpSonTarih.Location = new Point(170, 190);
             dtpSonTarih.Name = "dtpSonTarih";
-            dtpSonTarih.Size = new Size(200, 34);
-            dtpSonTarih.TabIndex = 3;
+            dtpSonTarih.Size = new Size(250, 34);
+            dtpSonTarih.TabIndex = 7;
+            // 
+            // lblAciklama
+            // 
+            lblAciklama.Font = new Font("Segoe UI", 12F);
+            lblAciklama.Location = new Point(30, 235);
+            lblAciklama.Name = "lblAciklama";
+            lblAciklama.Size = new Size(120, 30);
+            lblAciklama.TabIndex = 8;
+            lblAciklama.Text = "Açıklama *";
             // 
             // txtAciklama
             // 
             txtAciklama.Font = new Font("Segoe UI", 12F);
-            txtAciklama.Location = new Point(221, 182);
+            txtAciklama.Location = new Point(170, 235);
             txtAciklama.Name = "txtAciklama";
-            txtAciklama.Size = new Size(200, 34);
-            txtAciklama.TabIndex = 4;
+            txtAciklama.Size = new Size(250, 34);
+            txtAciklama.TabIndex = 9;
             // 
             // btnKaydet
             // 
-            btnKaydet.BackColor = Color.MediumSeaGreen;
+            btnKaydet.BackColor = Color.FromArgb(0, 120, 215);
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnKaydet.ForeColor = Color.White;
-            btnKaydet.Location = new Point(221, 222);
+            btnKaydet.Location = new Point(170, 285);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(200, 48);
-            btnKaydet.TabIndex = 5;
+            btnKaydet.Size = new Size(250, 40);
+            btnKaydet.TabIndex = 10;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = false;
             btnKaydet.Click += btnKaydet_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(43, 62);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 28);
-            label1.TabIndex = 7;
-            label1.Text = "Fatura Türü:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(43, 102);
-            label2.Name = "label2";
-            label2.Size = new Size(57, 28);
-            label2.TabIndex = 8;
-            label2.Text = "Tutar";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(43, 144);
-            label3.Name = "label3";
-            label3.Size = new Size(166, 28);
-            label3.TabIndex = 9;
-            label3.Text = "Son Ödeme Tarihi";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(43, 182);
-            label4.Name = "label4";
-            label4.Size = new Size(91, 28);
-            label4.TabIndex = 10;
-            label4.Text = "Açıklama";
-            // 
             // FaturaEkleForm
             // 
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(457, 315);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(500, 360);
             Controls.Add(lblTitle);
+            Controls.Add(lblZorunlu);
+            Controls.Add(lblFaturaTipi);
             Controls.Add(cmbFaturaTipi);
+            Controls.Add(lblTutar);
             Controls.Add(txtTutar);
+            Controls.Add(lblSonTarih);
             Controls.Add(dtpSonTarih);
+            Controls.Add(lblAciklama);
             Controls.Add(txtAciklama);
             Controls.Add(btnKaydet);
             Font = new Font("Segoe UI", 12F);
@@ -149,9 +166,5 @@
             ResumeLayout(false);
             PerformLayout();
         }
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
     }
 }

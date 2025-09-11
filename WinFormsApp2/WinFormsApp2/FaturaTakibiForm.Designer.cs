@@ -5,7 +5,6 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvFaturaTakibi;
-        private System.Windows.Forms.Button btnYenile;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,21 +17,19 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitle = new Label();
             dgvFaturaTakibi = new DataGridView();
-            btnYenile = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFaturaTakibi).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
             // 
-            lblTitle.BackColor = Color.WhiteSmoke;
-            lblTitle.Dock = DockStyle.Top;
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.DarkSlateGray;
-            lblTitle.Location = new Point(0, 0);
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitle.Location = new Point(0, 10);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(691, 40);
+            lblTitle.Size = new Size(700, 45);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Takibi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -41,29 +38,38 @@
             // 
             dgvFaturaTakibi.AllowUserToAddRows = false;
             dgvFaturaTakibi.AllowUserToDeleteRows = false;
+            dgvFaturaTakibi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvFaturaTakibi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFaturaTakibi.ColumnHeadersHeight = 29;
-            dgvFaturaTakibi.Location = new Point(10, 50);
+            dgvFaturaTakibi.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dgvFaturaTakibi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvFaturaTakibi.ColumnHeadersHeight = 38;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFaturaTakibi.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvFaturaTakibi.Location = new Point(30, 65);
             dgvFaturaTakibi.Name = "dgvFaturaTakibi";
             dgvFaturaTakibi.ReadOnly = true;
             dgvFaturaTakibi.RowHeadersVisible = false;
             dgvFaturaTakibi.RowHeadersWidth = 51;
-            dgvFaturaTakibi.Size = new Size(650, 280);
-            dgvFaturaTakibi.TabIndex = 0;
-            // 
-            // btnYenile
-            // 
-            btnYenile.Location = new Point(0, 0);
-            btnYenile.Name = "btnYenile";
-            btnYenile.Size = new Size(75, 23);
-            btnYenile.TabIndex = 1;
+            dgvFaturaTakibi.RowTemplate.Height = 30;
+            dgvFaturaTakibi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFaturaTakibi.Size = new Size(647, 261);
+            dgvFaturaTakibi.TabIndex = 1;
             // 
             // FaturaTakibiForm
             // 
-            ClientSize = new Size(691, 359);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(707, 391);
             Controls.Add(lblTitle);
             Controls.Add(dgvFaturaTakibi);
-            Controls.Add(btnYenile);
+            Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaTakibiForm";
             StartPosition = FormStartPosition.CenterScreen;
