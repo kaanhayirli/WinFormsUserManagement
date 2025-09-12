@@ -18,8 +18,8 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitle = new Label();
             kullaniciTablosu = new DataGridView();
             btnSil = new Button();
@@ -28,10 +28,11 @@
             // 
             // lblTitle
             // 
+            lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.Location = new Point(0, 10);
+            lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(605, 40);
+            lblTitle.Size = new Size(607, 50);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Kullanıcı Bilgileri";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -43,18 +44,18 @@
             kullaniciTablosu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             kullaniciTablosu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             kullaniciTablosu.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            kullaniciTablosu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            kullaniciTablosu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             kullaniciTablosu.ColumnHeadersHeight = 36;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            kullaniciTablosu.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            kullaniciTablosu.DefaultCellStyle = dataGridViewCellStyle4;
             kullaniciTablosu.Location = new Point(30, 60);
             kullaniciTablosu.MultiSelect = false;
             kullaniciTablosu.Name = "kullaniciTablosu";

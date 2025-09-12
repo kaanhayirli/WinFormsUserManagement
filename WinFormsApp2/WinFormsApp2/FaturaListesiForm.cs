@@ -14,7 +14,7 @@ namespace WinFormsApp2
             btnSil.Click += btnSil_Click;
         }
 
-        private void LoadFaturalar()
+        public void LoadFaturalar()
         {
             //dgvFaturaListesi.Rows.Clear();//sor burayı
             //dgvFaturaListesi.Columns.Clear();//sor burayı
@@ -38,7 +38,7 @@ namespace WinFormsApp2
                 var veriOkuyucu = komut.ExecuteReader();
             }
         }
-
+       
         private void btnOdenen_Click(object sender, EventArgs e)
         {
             if (dgvFaturaListesi.SelectedRows.Count == 0)
@@ -83,15 +83,6 @@ namespace WinFormsApp2
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
-
-                // Önce ilişkili FaturaOdeme kayıtlarını sil
-                var komutFaturaOdeme = new SqlCommand();
-                komutFaturaOdeme.Connection = baglanti;
-                komutFaturaOdeme.CommandText = "DELETE FROM FaturaOdeme WHERE FaturaId=@FaturaId";
-                komutFaturaOdeme.Parameters.AddWithValue("@FaturaId", seciliFatura);
-                komutFaturaOdeme.ExecuteNonQuery();
-
-                // Sonra faturayı sil
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "DELETE FROM Faturalar WHERE Id=@Id";

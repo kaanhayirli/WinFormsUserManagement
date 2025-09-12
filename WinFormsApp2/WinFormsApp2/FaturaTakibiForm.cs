@@ -6,22 +6,23 @@ namespace WinFormsApp2
 {
     public partial class FaturaTakibiForm : Form
     {
+        public event Action FaturaEklendi;
         public FaturaTakibiForm()
         {
             InitializeComponent();
             LoadKullaniciBorclari();
         }
 
-        private void LoadKullaniciBorclari()
+        public void LoadKullaniciBorclari()
         {
             //dgvFaturaTakibi.Rows.Clear();//sor burayı
             //dgvFaturaTakibi.Columns.Clear();//sor burayı
             //dgvFaturaTakibi.Columns.Add("FullName", "Ad Soyad");
             //dgvFaturaTakibi.Columns.Add("TotalDebt", "Toplam Borç");
 
-            var dt = new System.Data.DataTable();
-            dt.Columns.Add("Ad Soyad", typeof(string));
-            dt.Columns.Add("Toplam Borç", typeof(string));
+            var dataTable = new System.Data.DataTable();
+            dataTable.Columns.Add("Ad Soyad", typeof(string));
+            dataTable.Columns.Add("Toplam Borç", typeof(string));
 
             int kullaniciSayisi = 0;
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
@@ -45,10 +46,10 @@ namespace WinFormsApp2
                 var veriOkuyucu = komutListe.ExecuteReader();
                 while (veriOkuyucu.Read())
                 {
-                    dt.Rows.Add(veriOkuyucu["FullName"].ToString(), kisiBorcu.ToString("C2"));
+                    dataTable.Rows.Add(veriOkuyucu["FullName"].ToString(), kisiBorcu.ToString("C2"));
                 }
             }
-            dgvFaturaTakibi.DataSource = dt;
+            dgvFaturaTakibi.DataSource = dataTable;
         }
     }
 }

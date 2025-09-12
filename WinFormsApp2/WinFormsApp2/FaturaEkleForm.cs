@@ -6,6 +6,7 @@ namespace WinFormsApp2
 {
     public partial class FaturaEkleForm : Form
     {
+
         public FaturaEkleForm()
         {
             InitializeComponent();

@@ -39,10 +39,11 @@
             // 
             // lblTitle
             // 
+            lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.Location = new Point(0, 10);
+            lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(413, 40);
+            lblTitle.Size = new Size(412, 50);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Profil";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;

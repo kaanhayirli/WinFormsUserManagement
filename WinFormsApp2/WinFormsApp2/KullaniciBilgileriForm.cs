@@ -81,15 +81,5 @@ namespace WinFormsApp2
 
             LoadKullaniciBilgileri();
         }
-
-        private void kullaniciTablosu_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void kullaniciTablosu_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -76,35 +76,5 @@ namespace WinFormsApp2
             txtEskiSifre.Text = "";
             txtYeniSifre.Text = "";
         }
-
-        private void lblPhone_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Telefon labelına tıklandı.");
-        }
-
-        private void lblOdenmemis_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ödenmemiş Faturalar labelına tıklandı.");
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblKullaniciAdi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

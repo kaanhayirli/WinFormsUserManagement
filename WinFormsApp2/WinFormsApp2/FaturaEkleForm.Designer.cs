@@ -41,10 +41,11 @@
             // 
             // lblTitle
             // 
+            lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitle.Location = new Point(0, 10);
+            lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(500, 45);
+            lblTitle.Size = new Size(500, 55);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Ekle";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
