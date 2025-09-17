@@ -19,8 +19,8 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitle = new Label();
             dgvFaturaListesi = new DataGridView();
             btnOdenen = new Button();
@@ -34,7 +34,7 @@
             lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblTitle.Location = new Point(0, 2);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(782, 53);
+            lblTitle.Size = new Size(774, 53);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Listesi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -46,30 +46,30 @@
             dgvFaturaListesi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvFaturaListesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFaturaListesi.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvFaturaListesi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvFaturaListesi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvFaturaListesi.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvFaturaListesi.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFaturaListesi.DefaultCellStyle = dataGridViewCellStyle2;
             dgvFaturaListesi.Location = new Point(30, 70);
             dgvFaturaListesi.Name = "dgvFaturaListesi";
             dgvFaturaListesi.ReadOnly = true;
             dgvFaturaListesi.RowHeadersWidth = 51;
             dgvFaturaListesi.RowTemplate.Height = 32;
             dgvFaturaListesi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvFaturaListesi.Size = new Size(721, 320);
+            dgvFaturaListesi.Size = new Size(713, 320);
             dgvFaturaListesi.TabIndex = 1;
             // 
             // btnOdenen
@@ -101,7 +101,7 @@
             // FaturaListesiForm
             // 
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(781, 480);
+            ClientSize = new Size(773, 480);
             Controls.Add(lblTitle);
             Controls.Add(dgvFaturaListesi);
             Controls.Add(btnOdenen);

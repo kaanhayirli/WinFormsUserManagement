@@ -5,8 +5,11 @@ namespace WinFormsApp2
 {
     public partial class MainPage : Form
     {
-        // Aktif kullanıcı ID'sini burada saklayabilirsin.
+        
         public static int AktifKullaniciId { get; set; }
+
+        private FaturaListesiForm faturaListesiForm;
+        private FaturaTakibiForm faturaTakibiForm;
 
         public MainPage()
         {
@@ -28,13 +31,13 @@ namespace WinFormsApp2
             tabPageFaturaEkle.Controls.Add(faturaEkleForm);
             faturaEkleForm.Show();
 
-            var faturaListesiForm = new FaturaListesiForm();
+            faturaListesiForm = new FaturaListesiForm();
             faturaListesiForm.TopLevel = false;
             faturaListesiForm.Dock = DockStyle.Fill;
             tabPageFaturaListesi.Controls.Add(faturaListesiForm);
             faturaListesiForm.Show();
 
-            var faturaTakibiForm = new FaturaTakibiForm();
+            faturaTakibiForm = new FaturaTakibiForm();
             faturaTakibiForm.TopLevel = false;
             faturaTakibiForm.Dock = DockStyle.Fill;
             tabPageFaturaTakibi.Controls.Add(faturaTakibiForm);
@@ -51,6 +54,20 @@ namespace WinFormsApp2
             profilForm.Dock = DockStyle.Fill;
             tabPageProfil.Controls.Add(profilForm);
             profilForm.Show();
+
+            tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
+        }
+        // Event handler for tab selection change
+        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPageFaturaListesi && faturaListesiForm != null)
+            {
+                faturaListesiForm.LoadFaturalar();
+            }
+            else if (tabControl1.SelectedTab == tabPageFaturaTakibi && faturaTakibiForm != null)
+            {
+                faturaTakibiForm.LoadKullaniciBorclari();
+            }
         }
     }
 }
