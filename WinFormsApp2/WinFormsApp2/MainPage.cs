@@ -57,7 +57,7 @@ namespace WinFormsApp2
 
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
         }
-        // Event handler for tab selection change
+        
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabPageFaturaListesi && faturaListesiForm != null)

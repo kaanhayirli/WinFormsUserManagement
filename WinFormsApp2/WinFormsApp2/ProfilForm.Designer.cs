@@ -60,10 +60,13 @@
             // txtUsername
             // 
             txtUsername.BackColor = SystemColors.Window;
+            txtUsername.BorderStyle = BorderStyle.Fixed3D;
             txtUsername.Location = new Point(160, 60);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(200, 25);
             txtUsername.TabIndex = 2;
+            txtUsername.Text = ",";
+            txtUsername.Click += txtUsername_Click;
             // 
             // lblAdSoyad
             // 
@@ -77,6 +80,7 @@
             // txtFullName
             // 
             txtFullName.BackColor = SystemColors.Window;
+            txtFullName.BorderStyle = BorderStyle.Fixed3D;
             txtFullName.Location = new Point(160, 100);
             txtFullName.Name = "txtFullName";
             txtFullName.Size = new Size(200, 25);
@@ -94,6 +98,7 @@
             // txtPhone
             // 
             txtPhone.BackColor = SystemColors.Window;
+            txtPhone.BorderStyle = BorderStyle.Fixed3D;
             txtPhone.Location = new Point(160, 140);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(200, 25);
@@ -141,6 +146,7 @@
             // 
             // ProfilForm
             // 
+            AutoScroll = true;
             BackColor = Color.White;
             ClientSize = new Size(413, 320);
             Controls.Add(lblTitle);

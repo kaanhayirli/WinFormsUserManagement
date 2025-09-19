@@ -38,7 +38,7 @@ namespace WinFormsApp2
                 var veriOkuyucu = komut.ExecuteReader();
             }
         }
-       
+
         private void btnOdenen_Click(object sender, EventArgs e)
         {
             if (dgvFaturaListesi.SelectedRows.Count == 0)
@@ -98,6 +98,11 @@ namespace WinFormsApp2
                     MessageBox.Show("Fatura silinirken bir hata oluştu.");
                 }
             }
+        }
+
+        private void dgvFaturaListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

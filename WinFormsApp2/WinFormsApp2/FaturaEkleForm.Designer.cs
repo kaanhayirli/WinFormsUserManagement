@@ -146,6 +146,7 @@
             // 
             // FaturaEkleForm
             // 
+            AutoScroll = true;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(500, 360);
             Controls.Add(lblTitle);

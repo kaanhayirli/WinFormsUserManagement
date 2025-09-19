@@ -48,7 +48,7 @@
             dgvFaturaListesi.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -71,6 +71,7 @@
             dgvFaturaListesi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFaturaListesi.Size = new Size(713, 320);
             dgvFaturaListesi.TabIndex = 1;
+            dgvFaturaListesi.CellContentClick += dgvFaturaListesi_CellContentClick;
             // 
             // btnOdenen
             // 
@@ -100,6 +101,7 @@
             // 
             // FaturaListesiForm
             // 
+            AutoScroll = true;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(773, 480);
             Controls.Add(lblTitle);

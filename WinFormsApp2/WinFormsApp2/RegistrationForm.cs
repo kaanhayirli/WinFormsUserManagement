@@ -22,7 +22,7 @@ namespace WinFormsApp2
 
             if (adsoyad == "" || kullaniciadi == "" || tel == "" || sifre == "")
             {
-                MessageBox.Show("Boþ býrakma!");
+                MessageBox.Show("Lütfen tüm alanlarý doldurunuz!");
                 return;
             }
 

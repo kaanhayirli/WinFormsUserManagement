@@ -30,7 +30,7 @@
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(708, 55);
+            lblTitle.Size = new Size(631, 55);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Takibi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -66,6 +66,8 @@
             // 
             // FaturaTakibiForm
             // 
+            AutoScroll = true;
+            AutoSize = true;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(707, 391);
             Controls.Add(lblTitle);

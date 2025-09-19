@@ -76,5 +76,10 @@ namespace WinFormsApp2
             txtEskiSifre.Text = "";
             txtYeniSifre.Text = "";
         }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
