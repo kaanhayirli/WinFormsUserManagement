@@ -71,7 +71,6 @@
             dgvFaturaListesi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFaturaListesi.Size = new Size(713, 320);
             dgvFaturaListesi.TabIndex = 1;
-            dgvFaturaListesi.CellContentClick += dgvFaturaListesi_CellContentClick;
             // 
             // btnOdenen
             // 

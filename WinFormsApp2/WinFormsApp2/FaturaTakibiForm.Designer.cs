@@ -28,9 +28,9 @@
             // 
             lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.Location = new Point(0, 0);
+            lblTitle.Location = new Point(30, 7);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(631, 55);
+            lblTitle.Size = new Size(647, 55);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Takibi";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;

@@ -31,11 +31,10 @@ namespace WinFormsApp2
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "SELECT Id AS [Id], Tur AS [Fatura Türü], Tutar AS [Tutar], SonOdemeTarihi AS [S.Ö.T], Aciklama AS [Açıklama], OdendiMi AS [Durum] FROM Faturalar";
-                var adapter = new SqlDataAdapter(komut);
+                var dataAdapter = new SqlDataAdapter(komut);
                 var dataTable = new System.Data.DataTable();
-                adapter.Fill(dataTable);
+                dataAdapter.Fill(dataTable);
                 dgvFaturaListesi.DataSource = dataTable;
-                var veriOkuyucu = komut.ExecuteReader();
             }
         }
 
@@ -98,11 +97,6 @@ namespace WinFormsApp2
                     MessageBox.Show("Fatura silinirken bir hata oluştu.");
                 }
             }
-        }
-
-        private void dgvFaturaListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

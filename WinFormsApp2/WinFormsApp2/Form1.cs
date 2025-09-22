@@ -5,7 +5,6 @@ namespace WinFormsApp2
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             InitializeComponent();
@@ -28,23 +27,16 @@ namespace WinFormsApp2
 
                 SqlCommand komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "SELECT COUNT(*) FROM Users WHERE Username=@Username AND Password=@Password";
+                komut.CommandText = "SELECT Id FROM Users WHERE Username=@Username AND Password=@Password";
                 komut.Parameters.AddWithValue("@Username", kullaniciadi);
                 komut.Parameters.AddWithValue("@Password", sifre);
 
-                int sayi = (int)komut.ExecuteScalar();
-                if (sayi > 0)
+                object sonuc = komut.ExecuteScalar();
+                if (sonuc != null)
                 {
-                    // Kullanýcý ID'sini al
-                    komut.CommandText = "SELECT Id FROM Users WHERE Username=@Username AND Password=@Password";
-                    object sonuc = komut.ExecuteScalar();
-                    if (sonuc != null)
-                    {
-                        int bulunanKullaniciId = Convert.ToInt32(sonuc);
-                        MainPage.AktifKullaniciId = bulunanKullaniciId;
-                    }
+                    int bulunanKullaniciId = Convert.ToInt32(sonuc);
+                    MainPage.AktifKullaniciId = bulunanKullaniciId;
 
-                    // Ana sayfayý aç ve giriþ formunu kapat
                     MainPage anaForm = new MainPage();
                     anaForm.Show();
                     this.Hide();
@@ -61,6 +53,5 @@ namespace WinFormsApp2
             RegistrationForm regForm = new RegistrationForm();
             regForm.ShowDialog();
         }
-
     }
 }

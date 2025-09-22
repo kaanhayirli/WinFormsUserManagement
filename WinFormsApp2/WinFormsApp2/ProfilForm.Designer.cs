@@ -65,8 +65,6 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(200, 25);
             txtUsername.TabIndex = 2;
-            txtUsername.Text = ",";
-            txtUsername.Click += txtUsername_Click;
             // 
             // lblAdSoyad
             // 

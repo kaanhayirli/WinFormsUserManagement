@@ -33,10 +33,10 @@ namespace WinFormsApp2
                 var komut = new SqlCommand();
                 komut.Connection = baglanti;
                 komut.CommandText = "SELECT Id AS [Id], FullName AS [Ad Soyad], Phone AS [Telefon] FROM Users";
-                var dt = new System.Data.DataTable();
-                var adapter = new SqlDataAdapter(komut);
-                adapter.Fill(dt);
-                kullaniciTablosu.DataSource = dt;
+                var dataTable = new System.Data.DataTable();
+                var dataAdapter = new SqlDataAdapter(komut);
+                dataAdapter.Fill(dataTable);
+                kullaniciTablosu.DataSource = dataTable;
             }
         }
 
@@ -60,18 +60,11 @@ namespace WinFormsApp2
             using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 baglanti.Open();
-
-                var komut1 = new SqlCommand();
-                komut1.Connection = baglanti;
-                komut1.CommandText = "DELETE FROM FaturaOdeme WHERE UserId=@Id";
-                komut1.Parameters.AddWithValue("@Id", seciliKisiId);
-                komut1.ExecuteNonQuery();
-
-                var komut2 = new SqlCommand();
-                komut2.Connection = baglanti;
-                komut2.CommandText = "DELETE FROM Users WHERE Id=@Id";
-                komut2.Parameters.AddWithValue("@Id", seciliKisiId);
-                silindi = komut2.ExecuteNonQuery() > 0;
+                var komut = new SqlCommand();
+                komut.Connection = baglanti;
+                komut.CommandText = "DELETE FROM Users WHERE Id=@Id";
+                komut.Parameters.AddWithValue("@Id", seciliKisiId);
+                silindi = komut.ExecuteNonQuery() > 0;
             }
 
             if (silindi)
