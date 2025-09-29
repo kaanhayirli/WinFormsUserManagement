@@ -158,6 +158,7 @@
             Controls.Add(txtEskiSifre);
             Controls.Add(txtYeniSifre);
             Controls.Add(btnSifreDegistir);
+            Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ProfilForm";
             StartPosition = FormStartPosition.CenterScreen;

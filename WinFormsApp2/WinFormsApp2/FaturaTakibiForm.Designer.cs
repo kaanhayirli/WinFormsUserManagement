@@ -67,8 +67,7 @@
             // FaturaTakibiForm
             // 
             AutoScroll = true;
-            AutoSize = true;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.White;
             ClientSize = new Size(707, 391);
             Controls.Add(lblTitle);
             Controls.Add(dgvFaturaTakibi);

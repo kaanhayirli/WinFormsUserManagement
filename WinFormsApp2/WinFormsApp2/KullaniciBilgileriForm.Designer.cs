@@ -87,6 +87,7 @@
             Controls.Add(lblTitle);
             Controls.Add(kullaniciTablosu);
             Controls.Add(btnSil);
+            Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.None;
             Name = "KullaniciBilgileriForm";
             StartPosition = FormStartPosition.CenterScreen;

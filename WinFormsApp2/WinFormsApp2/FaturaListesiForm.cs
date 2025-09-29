@@ -67,6 +67,7 @@ namespace WinFormsApp2
         private void btnSil_Click(Object sender, EventArgs e)
         {
             if (dgvFaturaListesi.SelectedRows.Count == 0)
+
             {
                 MessageBox.Show("Lütfen bir fatura seçin!");
                 return;

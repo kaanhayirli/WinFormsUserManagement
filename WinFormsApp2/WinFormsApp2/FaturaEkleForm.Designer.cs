@@ -160,7 +160,7 @@
             Controls.Add(lblAciklama);
             Controls.Add(txtAciklama);
             Controls.Add(btnKaydet);
-            Font = new Font("Segoe UI", 12F);
+            Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FaturaEkleForm";
             StartPosition = FormStartPosition.CenterScreen;
