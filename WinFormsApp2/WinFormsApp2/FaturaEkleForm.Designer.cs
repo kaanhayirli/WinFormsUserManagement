@@ -45,7 +45,7 @@
             lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(500, 55);
+            lblTitle.Size = new Size(564, 55);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Fatura Ekle";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -74,7 +74,7 @@
             cmbFaturaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFaturaTipi.Font = new Font("Segoe UI", 12F);
             cmbFaturaTipi.Items.AddRange(new object[] { "Elektrik", "Su", "Doğalgaz", "Aidat", "Kira", "Diğer" });
-            cmbFaturaTipi.Location = new Point(170, 100);
+            cmbFaturaTipi.Location = new Point(220, 100);
             cmbFaturaTipi.Name = "cmbFaturaTipi";
             cmbFaturaTipi.Size = new Size(295, 36);
             cmbFaturaTipi.TabIndex = 3;
@@ -91,7 +91,7 @@
             // txtTutar
             // 
             txtTutar.Font = new Font("Segoe UI", 12F);
-            txtTutar.Location = new Point(170, 145);
+            txtTutar.Location = new Point(220, 145);
             txtTutar.Name = "txtTutar";
             txtTutar.Size = new Size(295, 34);
             txtTutar.TabIndex = 5;
@@ -101,14 +101,14 @@
             lblSonTarih.Font = new Font("Segoe UI", 12F);
             lblSonTarih.Location = new Point(30, 190);
             lblSonTarih.Name = "lblSonTarih";
-            lblSonTarih.Size = new Size(130, 30);
+            lblSonTarih.Size = new Size(169, 34);
             lblSonTarih.TabIndex = 6;
             lblSonTarih.Text = "Son Ödeme Tarihi";
             // 
             // dtpSonTarih
             // 
             dtpSonTarih.Font = new Font("Segoe UI", 12F);
-            dtpSonTarih.Location = new Point(170, 190);
+            dtpSonTarih.Location = new Point(220, 190);
             dtpSonTarih.Name = "dtpSonTarih";
             dtpSonTarih.Size = new Size(295, 34);
             dtpSonTarih.TabIndex = 7;
@@ -125,7 +125,7 @@
             // txtAciklama
             // 
             txtAciklama.Font = new Font("Segoe UI", 12F);
-            txtAciklama.Location = new Point(170, 235);
+            txtAciklama.Location = new Point(220, 235);
             txtAciklama.Name = "txtAciklama";
             txtAciklama.Size = new Size(295, 34);
             txtAciklama.TabIndex = 9;
@@ -136,7 +136,7 @@
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnKaydet.ForeColor = Color.White;
-            btnKaydet.Location = new Point(170, 285);
+            btnKaydet.Location = new Point(220, 285);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(295, 40);
             btnKaydet.TabIndex = 10;
@@ -148,7 +148,7 @@
             // 
             AutoScroll = true;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(500, 360);
+            ClientSize = new Size(564, 378);
             Controls.Add(lblTitle);
             Controls.Add(lblZorunlu);
             Controls.Add(lblFaturaTipi);

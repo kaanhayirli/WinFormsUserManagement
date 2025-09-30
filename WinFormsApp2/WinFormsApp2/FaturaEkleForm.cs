@@ -31,28 +31,19 @@ namespace WinFormsApp2
                 return;
             }
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
+            var servis = new FaturaService();
+            bool basarili = servis.FaturaEkle(faturaTipi, tutar, sonTarih, aciklama);
+            
+            if (basarili)
+            
             {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "INSERT INTO Faturalar (Tur, Tutar, SonOdemeTarihi, Aciklama, OdendiMi) VALUES (@Tur, @Tutar, @SonOdemeTarihi, @Aciklama, 0)";
-                komut.Parameters.AddWithValue("@Tur", faturaTipi);
-                komut.Parameters.AddWithValue("@Tutar", tutar);
-                komut.Parameters.AddWithValue("@SonOdemeTarihi", sonTarih);
-                komut.Parameters.AddWithValue("@Aciklama", aciklama);
-
-                int sonuc = komut.ExecuteNonQuery();
-                if (sonuc > 0)
-                {
-                    MessageBox.Show("Fatura başarıyla eklendi.");
-                }
-                else
-                {
-                    MessageBox.Show("Fatura eklenemedi.");
-                }
+                MessageBox.Show("Fatura başarıyla eklendi.");
             }
-
+            else
+            {
+                MessageBox.Show("Fatura eklenemedi.");
+            }
+            
             cmbFaturaTipi.SelectedIndex = -1;
             txtTutar.Text = "";
             dtpSonTarih.Value = DateTime.Now;

@@ -16,26 +16,10 @@ namespace WinFormsApp2
 
         public void LoadFaturalar()
         {
-            //dgvFaturaListesi.Rows.Clear();//sor burayı
-            //dgvFaturaListesi.Columns.Clear();//sor burayı
-            //dgvFaturaListesi.Columns.Add("Id", "Id");
-            //dgvFaturaListesi.Columns.Add("Tur", "Fatura Tipi");
-            //dgvFaturaListesi.Columns.Add("Tutar", "Tutar");
-            //dgvFaturaListesi.Columns.Add("SonOdemeTarihi", "Son Tarih");
-            //dgvFaturaListesi.Columns.Add("Aciklama", "Açıklama");
-            //dgvFaturaListesi.Columns.Add("OdendiMi", "Ödendi mi?");
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "SELECT Id AS [Id], Tur AS [Fatura Türü], Tutar AS [Tutar], SonOdemeTarihi AS [S.Ö.T], Aciklama AS [Açıklama], OdendiMi AS [Durum] FROM Faturalar";
-                var dataAdapter = new SqlDataAdapter(komut);
-                var dataTable = new System.Data.DataTable();
-                dataAdapter.Fill(dataTable);
-                dgvFaturaListesi.DataSource = dataTable;
-            }
+            var servis = new FaturaService();
+            dgvFaturaListesi.DataSource = servis.FaturaListesiGetir();
+
         }
 
         private void btnOdenen_Click(object sender, EventArgs e)
@@ -50,19 +34,11 @@ namespace WinFormsApp2
             decimal tutar = Convert.ToDecimal(row.Cells["Tutar"].Value);
             string sonTarih = row.Cells["S.Ö.T"].Value.ToString();
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "UPDATE Faturalar SET OdendiMi=1 WHERE Tur=@Tur AND Tutar=@Tutar AND SonOdemeTarihi=@SonOdemeTarihi";
-                komut.Parameters.AddWithValue("@Tur", faturaTipi);
-                komut.Parameters.AddWithValue("@Tutar", tutar);
-                komut.Parameters.AddWithValue("@SonOdemeTarihi", DateTime.Parse(sonTarih));
-                komut.ExecuteNonQuery();
-            }
-            MessageBox.Show("Fatura ödendi olarak işaretlendi.");
-            LoadFaturalar();
+            var servis = new FaturaService();
+            bool basarili = servis.FaturaOde(faturaTipi, tutar, DateTime.Parse(sonTarih));
+            MessageBox.Show(basarili ? "Fatura ödendi olarak işaretlendi." : "Fatura işaretlenemedi.");
+ 
+             LoadFaturalar();
         }
         private void btnSil_Click(Object sender, EventArgs e)
         {
@@ -80,23 +56,17 @@ namespace WinFormsApp2
             if (sonuc != DialogResult.Yes)
                 return;
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
+            var servis = new FaturaService();
+            bool basarili = servis.FaturaSil(seciliFatura);
+
+            if (basarili)
             {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "DELETE FROM Faturalar WHERE Id=@Id";
-                komut.Parameters.AddWithValue("@Id", seciliFatura);
-                int result = komut.ExecuteNonQuery();
-                if (result > 0)
-                {
-                    MessageBox.Show("Fatura başarıyla silindi.");
-                    LoadFaturalar();
-                }
-                else
-                {
-                    MessageBox.Show("Fatura silinirken bir hata oluştu.");
-                }
+                MessageBox.Show("Fatura başarıyla silindi.");
+                LoadFaturalar();
+            }
+            else
+            {
+                MessageBox.Show("Fatura silinirken bir hata oluştu.");
             }
         }
     }
