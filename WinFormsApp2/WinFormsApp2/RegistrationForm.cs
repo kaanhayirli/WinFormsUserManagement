@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace WinFormsApp2
 {
@@ -26,52 +25,29 @@ namespace WinFormsApp2
                 return;
             }
 
-            bool varMi = false;
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                baglanti.Open();
-                SqlCommand kontrolKomut = new SqlCommand();
-                kontrolKomut.Connection = baglanti;
-                kontrolKomut.CommandText = "SELECT COUNT(*) FROM Users WHERE Username=@Username";
-                kontrolKomut.Parameters.AddWithValue("@Username", kullaniciadi);
-
-                int sayi = (int)kontrolKomut.ExecuteScalar();
-                if (sayi > 0)
-                {
-                    varMi = true;
-                }
-            }
-
-            if (varMi)
+            var userService = new UserService();
+            if (userService.KullaniciAdiVarMi(kullaniciadi))
             {
                 MessageBox.Show("Kullanýcý adý var.");
                 return;
             }
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
+            bool basarili = userService.KullaniciKaydet(adsoyad, kullaniciadi, tel, sifre);
+            if (basarili)
             {
-                baglanti.Open();
-
-                SqlCommand komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "insert into Users (FullName, Username, Phone, Password) values (@FullName,@Username,@Phone,@Password)";
-                komut.Parameters.AddWithValue("@FullName", adsoyad);
-                komut.Parameters.AddWithValue("@Username", kullaniciadi);
-                komut.Parameters.AddWithValue("@Phone", tel);
-                komut.Parameters.AddWithValue("@Password", sifre);
-
-                komut.ExecuteNonQuery();
+                User yeni = new User();
+                yeni.FullName = adsoyad;
+                yeni.Username = kullaniciadi;
+                yeni.Phone = tel;
+                yeni.Password = sifre;
+                Users.Add(yeni);
+                MessageBox.Show("Kayýt Baþarýlý.");
+                this.Close();
             }
-            
-            User yeni = new User();
-            yeni.FullName = adsoyad;
-            yeni.Username = kullaniciadi;
-            yeni.Phone = tel;
-            yeni.Password = sifre;
-            Users.Add(yeni);
-            
-            MessageBox.Show("Kayýt Baþarýlý.");
-            this.Close();
+            else
+            {
+                MessageBox.Show("Kayýt baþarýsýz.");
+            }
         }
     }
 

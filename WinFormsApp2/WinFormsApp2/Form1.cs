@@ -9,7 +9,7 @@ namespace WinFormsApp2
         {
             InitializeComponent();
         }
-        
+
         void btnGiris_Click(object sender, EventArgs e)
         {
             string kullaniciadi = txtLoginUsername.Text.Trim();
@@ -21,33 +21,22 @@ namespace WinFormsApp2
                 return;
             }
 
-            using (SqlConnection baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
+            var userService = new UserService();
+            int bulunanKullaniciId = userService.KullaniciIdGetir(kullaniciadi, sifre);
+
+            if (bulunanKullaniciId > 0)
             {
-                baglanti.Open();
-
-                SqlCommand komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "SELECT Id FROM Users WHERE Username=@Username AND Password=@Password";
-                komut.Parameters.AddWithValue("@Username", kullaniciadi);
-                komut.Parameters.AddWithValue("@Password", sifre);
-
-                object sonuc = komut.ExecuteScalar();
-                if (sonuc != null)
-                {
-                    int bulunanKullaniciId = Convert.ToInt32(sonuc);
-                    MainPage.AktifKullaniciId = bulunanKullaniciId;
-
-                    MainPage anaForm = new MainPage();
-                    anaForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Kullanýcý adý veya þifre yanlýþ!");
-                }
+                MainPage.AktifKullaniciId = bulunanKullaniciId;
+                MainPage anaForm = new MainPage();
+                anaForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Kullanýcý adý veya þifre yanlýþ!");
             }
         }
-        
+
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
             RegistrationForm regForm = new RegistrationForm();

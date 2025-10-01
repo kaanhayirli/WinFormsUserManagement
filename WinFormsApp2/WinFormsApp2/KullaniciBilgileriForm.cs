@@ -21,23 +21,8 @@ namespace WinFormsApp2
 
         private void LoadKullaniciBilgileri()
         {
-            //kullaniciTablosu.Rows.Clear();
-            //kullaniciTablosu.Columns.Clear();
-            //kullaniciTablosu.Columns.Add("Id", "Id");
-            //kullaniciTablosu.Columns.Add("FullName", "Ad Soyad");
-            //kullaniciTablosu.Columns.Add("Phone", "Telefon");
-
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "SELECT Id AS [Id], FullName AS [Ad Soyad], Phone AS [Telefon] FROM Users";
-                var dataTable = new System.Data.DataTable();
-                var dataAdapter = new SqlDataAdapter(komut);
-                dataAdapter.Fill(dataTable);
-                kullaniciTablosu.DataSource = dataTable;
-            }
+            var servis = new UserService();
+            kullaniciTablosu.DataSource = servis.KullaniciListesiGetir();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -55,23 +40,10 @@ namespace WinFormsApp2
             if (sonuc != DialogResult.Yes)
                 return;
 
-            bool silindi = false;
+            var servis = new UserService();
+            bool silindi = servis.KullaniciSil(seciliKisiId);
 
-            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                baglanti.Open();
-                var komut = new SqlCommand();
-                komut.Connection = baglanti;
-                komut.CommandText = "DELETE FROM Users WHERE Id=@Id";
-                komut.Parameters.AddWithValue("@Id", seciliKisiId);
-                silindi = komut.ExecuteNonQuery() > 0;
-            }
-
-            if (silindi)
-                MessageBox.Show("Kullanıcı başarıyla silindi.");
-            else
-                MessageBox.Show("Kullanıcı silinemedi.");
-
+            MessageBox.Show(silindi ? "Kullanıcı başarıyla silindi." : "Kullanıcı silinemedi.");
             LoadKullaniciBilgileri();
         }
     }

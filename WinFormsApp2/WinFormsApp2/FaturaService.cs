@@ -65,5 +65,33 @@ namespace WinFormsApp2
                 return komut.ExecuteNonQuery() > 0;
             }
         }
+
+        public DataTable KullaniciBorclariGetir()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Ad Soyad", typeof(string));
+            dataTable.Columns.Add("Toplam Borç", typeof(string));
+
+            int kullaniciSayisi = 0;
+            using (var baglanti = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                baglanti.Open();
+
+                var komutKullanici = new SqlCommand("SELECT COUNT(*) FROM Users", baglanti);
+                kullaniciSayisi = (int)komutKullanici.ExecuteScalar();
+
+                var komutFatura = new SqlCommand("SELECT SUM(Tutar) FROM Faturalar WHERE OdendiMi=0", baglanti);
+                decimal toplamFatura = komutFatura.ExecuteScalar() != DBNull.Value ? Convert.ToDecimal(komutFatura.ExecuteScalar()) : 0;
+                decimal kisiBorcu = kullaniciSayisi > 0 ? toplamFatura / kullaniciSayisi : 0;
+
+                var komutListe = new SqlCommand("SELECT FullName FROM Users", baglanti);
+                var veriOkuyucu = komutListe.ExecuteReader();
+                while (veriOkuyucu.Read())
+                {
+                    dataTable.Rows.Add(veriOkuyucu["FullName"].ToString(), kisiBorcu.ToString("C2"));
+                }
+            }
+            return dataTable;
+        }
     }
 }
