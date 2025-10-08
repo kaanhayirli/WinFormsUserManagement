@@ -23,7 +23,7 @@ namespace WinFormsApp2
             txtFullName.Text = bilgiler.FullName;
             txtPhone.Text = bilgiler.Phone;
         }
-
+        
         private void btnSifreDegistir_Click(object sender, EventArgs e)
         {
             string eskiSifre = txtEskiSifre.Text;

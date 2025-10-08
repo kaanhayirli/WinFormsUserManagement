@@ -19,7 +19,7 @@ namespace WinFormsApp2
                 MessageBox.Show("Lütfen tüm alanları doldurun!");
                 return;
             }
-
+            
             string faturaTipi = cmbFaturaTipi.SelectedItem.ToString();
             decimal tutar;
             DateTime sonTarih = dtpSonTarih.Value;

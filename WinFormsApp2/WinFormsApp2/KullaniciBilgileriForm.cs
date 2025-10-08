@@ -40,7 +40,7 @@ namespace WinFormsApp2
             if (sonuc != DialogResult.Yes)
                 return;
 
-            var servis = new UserService();
+            var servis = new UserService(); 
             bool silindi = servis.KullaniciSil(seciliKisiId);
 
             MessageBox.Show(silindi ? "Kullanıcı başarıyla silindi." : "Kullanıcı silinemedi.");

@@ -60,8 +60,7 @@ namespace WinFormsApp2
                     return (
                         veriOkuyucu["Username"].ToString(),
                         veriOkuyucu["FullName"].ToString(),
-                        veriOkuyucu["Phone"].ToString()
-                    );
+                        veriOkuyucu["Phone"].ToString());
                 }
                 return (null, null, null);
             }

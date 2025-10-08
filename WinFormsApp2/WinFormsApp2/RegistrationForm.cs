@@ -35,12 +35,6 @@ namespace WinFormsApp2
             bool basarili = userService.KullaniciKaydet(adsoyad, kullaniciadi, tel, sifre);
             if (basarili)
             {
-                User yeni = new User();
-                yeni.FullName = adsoyad;
-                yeni.Username = kullaniciadi;
-                yeni.Phone = tel;
-                yeni.Password = sifre;
-                Users.Add(yeni);
                 MessageBox.Show("Kayýt Baþarýlý.");
                 this.Close();
             }
@@ -50,7 +44,7 @@ namespace WinFormsApp2
             }
         }
     }
-
+ 
     public class User
     {
         public string FullName;
